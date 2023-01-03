@@ -7,6 +7,13 @@
     <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Named">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="Name_Format Name_Size"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="Name_Format" value="Tuple {&#xA;&#x9;message : String = 'first letter must be capital a',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;self.name.matches('[a-z][0-9A-Za-z]*')&#xA;}.status"/>
+      <details key="Name_Size" value="Tuple {&#xA;&#x9;message : String = 'at least three letters for name',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;self.name.size()>2&#xA;}.status"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//Named">
@@ -52,7 +59,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Feature">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//FeatureType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Feature">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" ordered="false" lowerBound="1"
@@ -67,7 +74,7 @@
       <details key="constraints" value="UrlContains"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="UrlContains" value="Tuple {&#xA;&#x9;message : String = 'expected a .',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;Sequence{1..self.url.size()}->exists(i | self.url.substring(i, i) = '.')&#xA;}.status"/>
+      <details key="UrlContains" value="Tuple {&#xA;&#x9;message : String = 'expected word.something format',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;self.url.matches('[0-9A-Za-z]+[.][a-z]')&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -80,6 +87,12 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pages" ordered="false"
         upperBound="-1" eType="#//Page"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="country" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        volatile="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="if self.url.matches('[0-9A-Za-z]+[.][i][t]') then 'italian'&#xA;&#x9;&#x9;&#x9;elseif self.url.matches('[0-9A-Za-z]+[.][c][o][m]') then 'american'&#xA;&#x9;&#x9;&#x9;elseif self.url.matches('[0-9A-Za-z]+[.][f][r]') then 'french'&#xA;&#x9;&#x9;&#x9;else 'undefined' endif "/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Content" abstract="true" eSuperTypes="#//Named"/>
   <eClassifiers xsi:type="ecore:EClass" name="D_Content" abstract="true" eSuperTypes="#//Content">
@@ -113,5 +126,14 @@
     <eLiterals name="percent" value="7"/>
     <eLiterals name="image" value="8"/>
     <eLiterals name="images" value="9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FeatureType">
+    <eLiterals name="int"/>
+    <eLiterals name="VARCHAR" value="1"/>
+    <eLiterals name="text" value="2"/>
+    <eLiterals name="bool" value="3"/>
+    <eLiterals name="date" value="4"/>
+    <eLiterals name="image" value="5"/>
+    <eLiterals name="longtext" value="6"/>
   </eClassifiers>
 </ecore:EPackage>
