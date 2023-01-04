@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MyMetaModel:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:MyMetaModel="com.example.mymetamodel" xsi:schemaLocation="com.example.mymetamodel MyMetaModel.ecore"/>
+<A2:System xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:A2="A2"
+    version="1"
+    subversion="1">
+  <pages name="page"
+      identifier="1"
+      url="page.com/hello">
+    <content
+        identifier="1"/>
+  </pages>
+</A2:System>
