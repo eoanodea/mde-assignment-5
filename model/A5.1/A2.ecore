@@ -53,10 +53,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Page" eSuperTypes="#//Named">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="UrlIsValid"/>
+      <details key="constraints" value="UrlIsValid ValidHomePage"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="UrlIsValid" value="Tuple {&#xA;&#x9;message : String = 'URL must contain an ending e.g. .com',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.url.matches('[0-9A-Za-z]+[.][0-9A-Za-z]+')&#xA;}.status"/>
+      <details key="ValidHomePage" value="Tuple {&#xA;&#x9;message : String = 'URL cannot have a / if it is the homepage',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;&#x9;self.isHomePage and not(Sequence{1..self.url.size()}->exists(i | self.url.substring(i, i) = '/'))&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
@@ -75,12 +76,18 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DynamicContent" eSuperTypes="#//Content">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attr" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+        eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attr" lowerBound="1" eType="#//Attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StaticContent" eSuperTypes="#//Content">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" eType="#//TagType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" lowerBound="1" eType="#//TagType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" ordered="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Form" eSuperTypes="#//Named">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" lowerBound="1"
