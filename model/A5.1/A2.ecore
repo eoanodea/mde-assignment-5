@@ -76,10 +76,6 @@
         eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attr" lowerBound="1" eType="#//Attribute"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StaticContent" eSuperTypes="#//Content">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" lowerBound="1" eType="#//TagType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Form" eSuperTypes="#//Named #//Content">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" lowerBound="1"
         eType="#//MethodType"/>
@@ -100,14 +96,6 @@
     <eLiterals name="post"/>
     <eLiterals name="get" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TagType">
-    <eLiterals name="p"/>
-    <eLiterals name="bold" value="1"/>
-    <eLiterals name="img" value="2"/>
-    <eLiterals name="h1" value="3"/>
-    <eLiterals name="h2" value="4"/>
-    <eLiterals name="h3" value="5"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataType">
     <eLiterals name="int"/>
     <eLiterals name="string" value="1"/>
@@ -119,5 +107,22 @@
     <eLiterals name="percent" value="7"/>
     <eLiterals name="image" value="8"/>
     <eLiterals name="images" value="9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="img">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+        eType="#//Content" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alttext" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="header">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+        eType="#//Content" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="paragraph">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+        eType="#//Content" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

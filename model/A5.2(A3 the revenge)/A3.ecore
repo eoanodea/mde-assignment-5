@@ -79,7 +79,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" eType="#//Content"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="D_content" eType="#//D_Content"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="S_content" eType="#//Static_Content"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pages" eType="#//Page"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="country" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -89,8 +91,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Content" abstract="true" eSuperTypes="#//Named"/>
-  <eClassifiers xsi:type="ecore:EClass" name="D_Content" eSuperTypes="#//Content">
+  <eClassifiers xsi:type="ecore:EClass" name="D_Content">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entity" ordered="false"
         lowerBound="1" upperBound="-1" eType="#//Entity">
       <eAnnotations source="http://www.eclipse.org/OCL/Collection">
@@ -98,14 +99,13 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Static_Content" eSuperTypes="#//Content">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Static_Content">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//DataType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="S_Index" eSuperTypes="#//Static_Content">
     <eStructuralFeatures xsi:type="ecore:EReference" name="s_individual" lowerBound="1"
         upperBound="-1" eType="#//S_Individual" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="S_Index_identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="S_Individual" eSuperTypes="#//Static_Content">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Individual_identifier"
