@@ -1,0 +1,18 @@
+module conversion;
+
+-- @path A2=/A51to5A2/A2.ecore
+-- @path A3=/A51to5A2/A3.ecore
+
+create OUT: A3 from IN: A2;
+
+
+rule Page_attr {
+    from
+        s : A2!System
+    to
+        t : A3!System (
+            Name <- s.Name
+        )
+
+}
+

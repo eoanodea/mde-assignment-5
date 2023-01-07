@@ -1,0 +1,110 @@
+@Ecore(invocationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", settingDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", validationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot")
+@namespace(uri="A2", prefix="A2")
+package A2;
+
+class Named {
+	attr String name;
+	attr String description;
+}
+
+class System extends Named {
+	attr EBigInteger[1] version;
+	attr EBigInteger[1] subversion;
+
+	@"http://www.eclipse.org/OCL/Collection"(nullFree="false")
+	val Entity[*] entities;
+
+	@"http://www.eclipse.org/OCL/Collection"(nullFree="false")
+	val Page[*] pages;
+}
+
+class Entity extends Named {
+
+	@"http://www.eclipse.org/OCL/Collection"(nullFree="false")
+	val Feature[+] features;
+}
+
+class Feature extends Named {
+}
+
+class Attribute extends Feature {
+	attr DataType[1] type;
+	attr boolean[1] IsPrimaryKey;
+}
+
+class Reference extends Feature {
+	ref Entity foreignKey;
+}
+
+@Ecore(constraints="ValidPageURL")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(ValidPageURL="Tuple {
+	message : String = 'URL cannot have a / if it is the homepage',
+	status : Boolean = 
+			if self.isHomePage = true then not Sequence{1..self.url.size()}->exists(i | self.url.substring(i, i) = '/')
+			else (Sequence{1..self.url.size()}->exists(i | self.url.substring(i, i) = '/'))
+			endif
+}.status")
+class Page extends Named {
+	id attr EBigInteger[1] identifier;
+	attr String url;
+	attr boolean[1] isHomePage;
+
+	@"http://www.eclipse.org/OCL/Collection"(nullFree="false")
+	val Content[+] content;
+}
+
+abstract class Content {
+	id attr EBigInteger[1] identifier;
+}
+
+class DynamicContent extends Content {
+	ref Entity[1] entity;
+	ref Attribute[1] ~attr;
+}
+
+class Form extends Named, Content {
+	attr MethodType[1] method;
+
+	@"http://www.eclipse.org/OCL/Collection"(nullFree="false")
+	val Element[*] elements;
+	ref Entity entity;
+}
+
+class Element extends Named {
+	attr String label;
+	attr String tooltip;
+	ref Attribute ~attr;
+}
+
+enum MethodType {
+	post = 0;
+	get = 1;
+}
+
+enum DataType {
+	int = 0;
+	string = 1;
+	text = 2;
+	bool = 3;
+	date = 4;
+	file = 5;
+	currency = 6;
+	percent = 7;
+	image = 8;
+	images = 9;
+}
+
+class img extends Content {
+	attr String url;
+	attr String alttext;
+}
+
+class header extends Content {
+	attr EBigInteger level;
+	attr String text;
+}
+
+class paragraph extends Content {
+	attr String text;
+}
+
