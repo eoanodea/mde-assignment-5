@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Model2TextModel/src" modelPluginID="Model2TextModel"
+    modelName="System" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>System.ecore</foreignModel>
+  <genPackages prefix="System" disposableProviderFactory="true" ecorePackage="System.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="System.ecore#//MethodType">
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//MethodType/post"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//MethodType/get"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="System.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/int"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/string"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/text"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/bool"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/date"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/file"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/currency"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/percent"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/image"/>
+      <genEnumLiterals ecoreEnumLiteral="System.ecore#//DataType/images"/>
+    </genEnums>
+    <genClasses ecoreClass="System.ecore#//Named">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Named/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Named/description"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//System">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//System/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//System/subversion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference System.ecore#//System/entities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference System.ecore#//System/pages"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//Entity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference System.ecore#//Entity/features"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//Feature"/>
+    <genClasses ecoreClass="System.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Attribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Attribute/IsPrimaryKey"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference System.ecore#//Reference/foreignKey"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//Page">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Page/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Page/isHomePage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference System.ecore#//Page/content"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//Content"/>
+    <genClasses ecoreClass="System.ecore#//DynamicContent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference System.ecore#//DynamicContent/entity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference System.ecore#//DynamicContent/attr"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//Form">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Form/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference System.ecore#//Form/elements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference System.ecore#//Form/entity"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Element/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Element/tooltip"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference System.ecore#//Element/attr"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//img">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//img/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//img/alttext"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//header/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//header/text"/>
+    </genClasses>
+    <genClasses ecoreClass="System.ecore#//paragraph">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//paragraph/text"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

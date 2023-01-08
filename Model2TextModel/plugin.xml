@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Tutorial -->
+      <package
+            uri="http://www.eclipse.org/mdt/ocl/oclinecore/tutorial"
+            class="tutorial.TutorialPackage"
+            genModel="model/Tutorial.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated A3 -->
+      <package
+            uri="platform:/resource/Model2TextModel/model/A3.ecore"
+            class="A3.A3Package"
+            genModel="model/A3.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated System -->
+      <package
+            uri="platform:/resource/Model2TextModel/model/System.ecore/"
+            class="system.SystemPackage"
+            genModel="model/System.genmodel"/>
+   </extension>
+
+</plugin>

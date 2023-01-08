@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sys:System
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:sys="platform:/resource/Model2TextModel/model/System.ecore/"
+    xsi:schemaLocation="platform:/resource/Model2TextModel/model/System.ecore/ System.ecore"
+    name="sys"
+    version="1"
+    subversion="0">
+  <entities
+      name="User">
+    <features
+        xsi:type="sys:Attribute"
+        name="identifier"
+        IsPrimaryKey="true"/>
+    <features
+        xsi:type="sys:Attribute"
+        name="username"
+        type="text"/>
+  </entities>
+  <pages name="Home"
+      url="website.com"
+      isHomePage="true">
+    <content
+        xsi:type="sys:header"
+        level="1"
+        text="Welcome to the homepage"/>
+    <content
+        xsi:type="sys:Form"
+        name="Sign up"
+        entity="//@entities.0">
+      <elements
+          name="username"
+          label="Enter your username"
+          tooltip="Enter your username"
+          attr="//@entities.0/@features.1"/>
+    </content>
+  </pages>
+  <pages name="Profile"
+      url="website.com/profile">
+    <content
+        xsi:type="sys:header"
+        level="1"
+        text="Profile Page"/>
+    <content
+        xsi:type="sys:DynamicContent"
+        entity="//@entities.0"
+        attr="//@entities.0/@features.1"/>
+  </pages>
+</sys:System>
