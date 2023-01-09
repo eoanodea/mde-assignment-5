@@ -85,7 +85,36 @@ CREATE TABLE elements (
 );
 
 
-INSERT INTO system (name, description, version, sub_version) VALUES ([aSystem.name/], [aSystem.description/], [aSystem.version/], [aSystem.subversion/])
+[comment]
+Page/Entity missing system_id -> theres a id in the table but not in the ecore
+Entity missing is own id
+Feature != Attribute -> Same with content
+ID PROBLEM
+[/comment]
+
+INSERT INTO system (name, description, version, sub_version) VALUES ('[aSystem.name/]', '[aSystem.description/]', [aSystem.version/], [aSystem.subversion/])
+
+[for (it : Page | aSystem.pages)]	
+INSERT INTO pages (id, title, url, description, is_home_page) VALUES ('[it.identifier/]','[it.name/]', '[it.url/]', [it.description/], [it.isHomePage/])
+[for (it2 : DynamicContent | it.content)]	
+INSERT INTO dynamic_content (page_id) VALUES ('[it.identifier/]')
+[/for]
+[for (it3 : Form | it.content)]	
+INSERT INTO forms (name, method) VALUES ('[it3.name/]', '[it3.method/]')
+[for (it4 : Element | it3.elements)]	
+INSERT INTO elements (name, description, label, tooltip) VALUES ('[it4.name/]', '[it4.description/]', '[it4.label/]', '[it4.tooltip/]')
+[/for]
+[/for]
+[/for]
+
+[for (it : Entity | aSystem.entities)]
+INSERT INTO entities (name, description) VALUES ('[it.name/]', [it.description/])
+[for (it2 : Attribute | it.features)]
+INSERT INTO attributes (name, description, type, is_primary_key) VALUES ('[it2.name/]','[it2.description/]', '[it2.type/]', [it2.IsPrimaryKey/]) 
+[/for]
+[/for]
+
+
 
 
 [/file]
