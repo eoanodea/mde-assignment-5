@@ -80,43 +80,18 @@ CREATE TABLE elements (
 
 
 INSERT INTO system (name, description, version, sub_version) VALUES ('sys', 'Here is a great system', 2, 5);
-
 INSERT INTO pages (title, url, description, is_home_page, system_id) VALUES ('Home', 'website.com', 'the homepage', 'true', 1);
-	
-		
-	
-	
 INSERT INTO static_content (type, text, page_id) VALUES ('h1', 'Welcome to the homepage', 1);
-		
-	
 INSERT INTO forms (name, description, method, entity_name, page_id) VALUES ('Sign up', 'Form used to sign up users', 'post','User', 1);
-		
 INSERT INTO elements (name, description, label, attribute_name, form_name) VALUES ('username', 'The users username', 'Enter your username', 'username', 'Sign up');
-		
-	
-		
-INSERT INTO entities (name, description, system_id) VALUES ('User', 'A user who has signed up', 1);
-INSERT INTO attributes (name, description, type, is_primary_key, entity_id) VALUES ('id','Unique identifier for the user', 'int', 'true', 1); 
-INSERT INTO attributes (name, description, type, is_primary_key, entity_id) VALUES ('username','The username of the user', 'string', 'false', 1); 
-
 INSERT INTO pages (title, url, description, is_home_page, system_id) VALUES ('Profile', 'website.com/profile', 'The profile page', 'false', 1);
-	
-		
-	
-	
 INSERT INTO static_content (type, text, page_id) VALUES ('h1', 'This is the profile page', 2);
-		
-	
 INSERT INTO dynamic_content (attribute_name, entity_name, page_id) VALUES ('org.eclipse.emf.ecore.impl.DynamicEObjectImpl@388526fb (eClass: org.eclipse.emf.ecore.impl.EClassImpl@418c5a9c (name: Attribute) (instanceClassName: null) (abstract: false, interface: false))', 'org.eclipse.emf.ecore.impl.DynamicEObjectImpl@388526fb (eClass: org.eclipse.emf.ecore.impl.EClassImpl@418c5a9c (name: Attribute) (instanceClassName: null) (abstract: false, interface: false))',2);
-	
-		
 INSERT INTO entities (name, description, system_id) VALUES ('User', 'A user who has signed up', 1);
 INSERT INTO attributes (name, description, type, is_primary_key, entity_id) VALUES ('id','Unique identifier for the user', 'int', 'true', 1); 
 INSERT INTO attributes (name, description, type, is_primary_key, entity_id) VALUES ('username','The username of the user', 'string', 'false', 1); 
-
 
 SELECT (title, description, url) FROM pages WHERE is_home_page = 'true';
-
 SELECT * FROM attributes WHERE entity_id = 1 AND is_primary_key = 'true';
 
 
