@@ -86,14 +86,6 @@ CREATE TABLE elements (
 );
 
 
-[comment]
-PROBLEM/QUESTION:
-1.SHOULD THE ID IN THE TABLES JUST INCREASE BY 1? NOT IMPLEMENTED
-BECAUSE OF POINT 1 I DIDNT INSERT NOTHING INTO THE REFERENCES AS THEY DO NOT HAVE ID YET
-2.IN THE MODEL2TEXTMODEL THE SYSTEM.ECORE DOES NOT HAVE STATIC_CONTENT, WHAT TO PUT IN THE TABLE HERE?
-3.DONT KNOW IF THE WAY I GOT DYNAMICCONTENT AND FORM IS THE RIGHT WAY, SAME WITH THE ATTRIBUTE
-[/comment]
-
 INSERT INTO system (name, description, version, sub_version) VALUES ('[aSystem.name/]', '[aSystem.description/]', [aSystem.version/], [aSystem.subversion/]);
 [for (it : Page | aSystem.pages)]	
 	[let pageId : Integer = i]
@@ -131,6 +123,10 @@ INSERT INTO attributes (name, description, type, is_primary_key, entity_id) VALU
 	[/let]
 [/for]
 
+
+SELECT (title, description, url) FROM pages WHERE is_home_page = 'true';
+
+SELECT * FROM attributes WHERE entity_id = 1 AND is_primary_key = 'true';
 
 
 

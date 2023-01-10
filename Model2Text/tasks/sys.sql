@@ -79,7 +79,6 @@ CREATE TABLE elements (
 );
 
 
-
 INSERT INTO system (name, description, version, sub_version) VALUES ('sys', 'Here is a great system', 2, 5);
 
 INSERT INTO pages (title, url, description, is_home_page, system_id) VALUES ('Home', 'website.com', 'the homepage', 'true', 1);
@@ -115,6 +114,10 @@ INSERT INTO entities (name, description, system_id) VALUES ('User', 'A user who 
 INSERT INTO attributes (name, description, type, is_primary_key, entity_id) VALUES ('id','Unique identifier for the user', 'int', 'true', 1); 
 INSERT INTO attributes (name, description, type, is_primary_key, entity_id) VALUES ('username','The username of the user', 'string', 'false', 1); 
 
+
+SELECT (title, description, url) FROM pages WHERE is_home_page = 'true';
+
+SELECT * FROM attributes WHERE entity_id = 1 AND is_primary_key = 'true';
 
 
 
