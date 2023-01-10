@@ -13,7 +13,6 @@ package system;
  * </p>
  * <ul>
  *   <li>{@link system.Element#getLabel <em>Label</em>}</li>
- *   <li>{@link system.Element#getTooltip <em>Tooltip</em>}</li>
  *   <li>{@link system.Element#getAttr <em>Attr</em>}</li>
  * </ul>
  *
@@ -43,28 +42,6 @@ public interface Element extends Named {
 	 * @generated
 	 */
 	void setLabel(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Tooltip</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tooltip</em>' attribute.
-	 * @see #setTooltip(String)
-	 * @see system.SystemPackage#getElement_Tooltip()
-	 * @model
-	 * @generated
-	 */
-	String getTooltip();
-
-	/**
-	 * Sets the value of the '{@link system.Element#getTooltip <em>Tooltip</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tooltip</em>' attribute.
-	 * @see #getTooltip()
-	 * @generated
-	 */
-	void setTooltip(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Attr</b></em>' reference.

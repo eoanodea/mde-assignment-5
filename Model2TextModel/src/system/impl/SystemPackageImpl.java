@@ -25,12 +25,9 @@ import system.MethodType;
 import system.Named;
 import system.Page;
 import system.Reference;
+import system.StaticContent;
 import system.SystemFactory;
 import system.SystemPackage;
-
-import system.header;
-import system.img;
-import system.paragraph;
 import system.util.SystemValidator;
 
 /**
@@ -122,21 +119,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass imgEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass headerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass paragraphEClass = null;
+	private EClass staticContentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -514,17 +497,8 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElement_Tooltip() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getElement_Attr() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(2);
+		return (EReference)elementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -532,8 +506,8 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getimg() {
-		return imgEClass;
+	public EClass getStaticContent() {
+		return staticContentEClass;
 	}
 
 	/**
@@ -541,8 +515,8 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getimg_Url() {
-		return (EAttribute)imgEClass.getEStructuralFeatures().get(0);
+	public EAttribute getStaticContent_Type() {
+		return (EAttribute)staticContentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -550,53 +524,8 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getimg_Alttext() {
-		return (EAttribute)imgEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getheader() {
-		return headerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getheader_Level() {
-		return (EAttribute)headerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getheader_Text() {
-		return (EAttribute)headerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getparagraph() {
-		return paragraphEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getparagraph_Text() {
-		return (EAttribute)paragraphEClass.getEStructuralFeatures().get(0);
+	public EAttribute getStaticContent_Text() {
+		return (EAttribute)staticContentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -687,19 +616,11 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__LABEL);
-		createEAttribute(elementEClass, ELEMENT__TOOLTIP);
 		createEReference(elementEClass, ELEMENT__ATTR);
 
-		imgEClass = createEClass(IMG);
-		createEAttribute(imgEClass, IMG__URL);
-		createEAttribute(imgEClass, IMG__ALTTEXT);
-
-		headerEClass = createEClass(HEADER);
-		createEAttribute(headerEClass, HEADER__LEVEL);
-		createEAttribute(headerEClass, HEADER__TEXT);
-
-		paragraphEClass = createEClass(PARAGRAPH);
-		createEAttribute(paragraphEClass, PARAGRAPH__TEXT);
+		staticContentEClass = createEClass(STATIC_CONTENT);
+		createEAttribute(staticContentEClass, STATIC_CONTENT__TYPE);
+		createEAttribute(staticContentEClass, STATIC_CONTENT__TEXT);
 
 		// Create enums
 		methodTypeEEnum = createEEnum(METHOD_TYPE);
@@ -744,9 +665,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		formEClass.getESuperTypes().add(this.getNamed());
 		formEClass.getESuperTypes().add(this.getContent());
 		elementEClass.getESuperTypes().add(this.getNamed());
-		imgEClass.getESuperTypes().add(this.getContent());
-		headerEClass.getESuperTypes().add(this.getContent());
-		paragraphEClass.getESuperTypes().add(this.getContent());
+		staticContentEClass.getESuperTypes().add(this.getContent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedEClass, Named.class, "Named", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -807,19 +726,11 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Label(), ecorePackage.getEString(), "label", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Tooltip(), ecorePackage.getEString(), "tooltip", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Attr(), this.getAttribute(), null, "attr", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(imgEClass, img.class, "img", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getimg_Url(), ecorePackage.getEString(), "url", null, 0, 1, img.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getimg_Alttext(), ecorePackage.getEString(), "alttext", null, 0, 1, img.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(headerEClass, header.class, "header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getheader_Level(), ecorePackage.getEBigInteger(), "level", null, 0, 1, header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getheader_Text(), ecorePackage.getEString(), "text", null, 0, 1, header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(paragraphEClass, paragraph.class, "paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getparagraph_Text(), ecorePackage.getEString(), "text", null, 0, 1, paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(staticContentEClass, StaticContent.class, "StaticContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStaticContent_Type(), ecorePackage.getEString(), "type", null, 0, 1, StaticContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStaticContent_Text(), ecorePackage.getEString(), "text", null, 0, 1, StaticContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(methodTypeEEnum, MethodType.class, "MethodType");

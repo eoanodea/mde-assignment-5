@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import system.Paragraph;
 import system.SystemPackage;
-import system.paragraph;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>paragraph</b></em>'.
+ * An implementation of the model object '<em><b>Paragraph</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link system.impl.paragraphImpl#getText <em>Text</em>}</li>
+ *   <li>{@link system.impl.ParagraphImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class paragraphImpl extends ContentImpl implements paragraph {
+public class ParagraphImpl extends ContentImpl implements Paragraph {
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public class paragraphImpl extends ContentImpl implements paragraph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected paragraphImpl() {
+	protected ParagraphImpl() {
 		super();
 	}
 
@@ -159,4 +159,4 @@ public class paragraphImpl extends ContentImpl implements paragraph {
 		return result.toString();
 	}
 
-} //paragraphImpl
+} //ParagraphImpl

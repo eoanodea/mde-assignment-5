@@ -121,31 +121,13 @@ public interface SystemFactory extends EFactory {
 	Element createElement();
 
 	/**
-	 * Returns a new object of class '<em>img</em>'.
+	 * Returns a new object of class '<em>Static Content</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>img</em>'.
+	 * @return a new object of class '<em>Static Content</em>'.
 	 * @generated
 	 */
-	img createimg();
-
-	/**
-	 * Returns a new object of class '<em>header</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>header</em>'.
-	 * @generated
-	 */
-	header createheader();
-
-	/**
-	 * Returns a new object of class '<em>paragraph</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>paragraph</em>'.
-	 * @generated
-	 */
-	paragraph createparagraph();
+	StaticContent createStaticContent();
 
 	/**
 	 * Returns the package supported by this factory.

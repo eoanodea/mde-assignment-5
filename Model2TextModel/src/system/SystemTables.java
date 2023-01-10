@@ -136,10 +136,8 @@ public class SystemTables extends AbstractTables
 		public static final EcoreExecutorType _Named = new EcoreExecutorType(SystemPackage.Literals.NAMED, PACKAGE, 0);
 		public static final EcoreExecutorType _Page = new EcoreExecutorType(SystemPackage.Literals.PAGE, PACKAGE, 0);
 		public static final EcoreExecutorType _Reference = new EcoreExecutorType(SystemPackage.Literals.REFERENCE, PACKAGE, 0);
+		public static final EcoreExecutorType _StaticContent = new EcoreExecutorType(SystemPackage.Literals.STATIC_CONTENT, PACKAGE, 0);
 		public static final EcoreExecutorType _System = new EcoreExecutorType(SystemPackage.Literals.SYSTEM, PACKAGE, 0);
-		public static final EcoreExecutorType _header = new EcoreExecutorType(SystemPackage.Literals.HEADER, PACKAGE, 0);
-		public static final EcoreExecutorType _img = new EcoreExecutorType(SystemPackage.Literals.IMG, PACKAGE, 0);
-		public static final EcoreExecutorType _paragraph = new EcoreExecutorType(SystemPackage.Literals.PARAGRAPH, PACKAGE, 0);
 
 		private static final EcoreExecutorType /*@NonNull*/ [] types = {
 			_Attribute,
@@ -154,10 +152,8 @@ public class SystemTables extends AbstractTables
 			_Named,
 			_Page,
 			_Reference,
-			_System,
-			_header,
-			_img,
-			_paragraph
+			_StaticContent,
+			_System
 		};
 
 		/*
@@ -246,25 +242,15 @@ public class SystemTables extends AbstractTables
 		private static final ExecutorFragment _Reference__OclElement = new ExecutorFragment(Types._Reference, OCLstdlibTables.Types._OclElement);
 		private static final ExecutorFragment _Reference__Reference = new ExecutorFragment(Types._Reference, SystemTables.Types._Reference);
 
+		private static final ExecutorFragment _StaticContent__Content = new ExecutorFragment(Types._StaticContent, SystemTables.Types._Content);
+		private static final ExecutorFragment _StaticContent__OclAny = new ExecutorFragment(Types._StaticContent, OCLstdlibTables.Types._OclAny);
+		private static final ExecutorFragment _StaticContent__OclElement = new ExecutorFragment(Types._StaticContent, OCLstdlibTables.Types._OclElement);
+		private static final ExecutorFragment _StaticContent__StaticContent = new ExecutorFragment(Types._StaticContent, SystemTables.Types._StaticContent);
+
 		private static final ExecutorFragment _System__Named = new ExecutorFragment(Types._System, SystemTables.Types._Named);
 		private static final ExecutorFragment _System__OclAny = new ExecutorFragment(Types._System, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _System__OclElement = new ExecutorFragment(Types._System, OCLstdlibTables.Types._OclElement);
 		private static final ExecutorFragment _System__System = new ExecutorFragment(Types._System, SystemTables.Types._System);
-
-		private static final ExecutorFragment _header__Content = new ExecutorFragment(Types._header, SystemTables.Types._Content);
-		private static final ExecutorFragment _header__OclAny = new ExecutorFragment(Types._header, OCLstdlibTables.Types._OclAny);
-		private static final ExecutorFragment _header__OclElement = new ExecutorFragment(Types._header, OCLstdlibTables.Types._OclElement);
-		private static final ExecutorFragment _header__header = new ExecutorFragment(Types._header, SystemTables.Types._header);
-
-		private static final ExecutorFragment _img__Content = new ExecutorFragment(Types._img, SystemTables.Types._Content);
-		private static final ExecutorFragment _img__OclAny = new ExecutorFragment(Types._img, OCLstdlibTables.Types._OclAny);
-		private static final ExecutorFragment _img__OclElement = new ExecutorFragment(Types._img, OCLstdlibTables.Types._OclElement);
-		private static final ExecutorFragment _img__img = new ExecutorFragment(Types._img, SystemTables.Types._img);
-
-		private static final ExecutorFragment _paragraph__Content = new ExecutorFragment(Types._paragraph, SystemTables.Types._Content);
-		private static final ExecutorFragment _paragraph__OclAny = new ExecutorFragment(Types._paragraph, OCLstdlibTables.Types._OclAny);
-		private static final ExecutorFragment _paragraph__OclElement = new ExecutorFragment(Types._paragraph, OCLstdlibTables.Types._OclElement);
-		private static final ExecutorFragment _paragraph__paragraph = new ExecutorFragment(Types._paragraph, SystemTables.Types._paragraph);
 
 		static {
 			Init.initEnd();
@@ -347,8 +333,7 @@ public class SystemTables extends AbstractTables
 
 		public static final ExecutorProperty _Element__attr = new EcoreExecutorProperty(SystemPackage.Literals.ELEMENT__ATTR, Types._Element, 0);
 		public static final ExecutorProperty _Element__label = new EcoreExecutorProperty(SystemPackage.Literals.ELEMENT__LABEL, Types._Element, 1);
-		public static final ExecutorProperty _Element__tooltip = new EcoreExecutorProperty(SystemPackage.Literals.ELEMENT__TOOLTIP, Types._Element, 2);
-		public static final ExecutorProperty _Element__Form__elements = new ExecutorPropertyWithImplementation("Form", Types._Element, 3, new EcoreLibraryOppositeProperty(SystemPackage.Literals.FORM__ELEMENTS));
+		public static final ExecutorProperty _Element__Form__elements = new ExecutorPropertyWithImplementation("Form", Types._Element, 2, new EcoreLibraryOppositeProperty(SystemPackage.Literals.FORM__ELEMENTS));
 
 		public static final ExecutorProperty _Entity__features = new EcoreExecutorProperty(SystemPackage.Literals.ENTITY__FEATURES, Types._Entity, 0);
 		public static final ExecutorProperty _Entity__DynamicContent__entity = new ExecutorPropertyWithImplementation("DynamicContent", Types._Entity, 1, new EcoreLibraryOppositeProperty(SystemPackage.Literals.DYNAMIC_CONTENT__ENTITY));
@@ -372,18 +357,13 @@ public class SystemTables extends AbstractTables
 
 		public static final ExecutorProperty _Reference__foreignKey = new EcoreExecutorProperty(SystemPackage.Literals.REFERENCE__FOREIGN_KEY, Types._Reference, 0);
 
+		public static final ExecutorProperty _StaticContent__text = new EcoreExecutorProperty(SystemPackage.Literals.STATIC_CONTENT__TEXT, Types._StaticContent, 0);
+		public static final ExecutorProperty _StaticContent__type = new EcoreExecutorProperty(SystemPackage.Literals.STATIC_CONTENT__TYPE, Types._StaticContent, 1);
+
 		public static final ExecutorProperty _System__entities = new EcoreExecutorProperty(SystemPackage.Literals.SYSTEM__ENTITIES, Types._System, 0);
 		public static final ExecutorProperty _System__pages = new EcoreExecutorProperty(SystemPackage.Literals.SYSTEM__PAGES, Types._System, 1);
 		public static final ExecutorProperty _System__subversion = new EcoreExecutorProperty(SystemPackage.Literals.SYSTEM__SUBVERSION, Types._System, 2);
 		public static final ExecutorProperty _System__version = new EcoreExecutorProperty(SystemPackage.Literals.SYSTEM__VERSION, Types._System, 3);
-
-		public static final ExecutorProperty _header__level = new EcoreExecutorProperty(SystemPackage.Literals.HEADER__LEVEL, Types._header, 0);
-		public static final ExecutorProperty _header__text = new EcoreExecutorProperty(SystemPackage.Literals.HEADER__TEXT, Types._header, 1);
-
-		public static final ExecutorProperty _img__alttext = new EcoreExecutorProperty(SystemPackage.Literals.IMG__ALTTEXT, Types._img, 0);
-		public static final ExecutorProperty _img__url = new EcoreExecutorProperty(SystemPackage.Literals.IMG__URL, Types._img, 1);
-
-		public static final ExecutorProperty _paragraph__text = new EcoreExecutorProperty(SystemPackage.Literals.PARAGRAPH__TEXT, Types._paragraph, 0);
 		static {
 			Init.initEnd();
 		}
@@ -514,6 +494,15 @@ public class SystemTables extends AbstractTables
 			};
 		private static final int /*@NonNull*/ [] __Reference = { 1,1,1,1,1 };
 
+		private static final ExecutorFragment /*@NonNull*/ [] _StaticContent =
+			{
+				Fragments._StaticContent__OclAny /* 0 */,
+				Fragments._StaticContent__OclElement /* 1 */,
+				Fragments._StaticContent__Content /* 2 */,
+				Fragments._StaticContent__StaticContent /* 3 */
+			};
+		private static final int /*@NonNull*/ [] __StaticContent = { 1,1,1,1 };
+
 		private static final ExecutorFragment /*@NonNull*/ [] _System =
 			{
 				Fragments._System__OclAny /* 0 */,
@@ -522,33 +511,6 @@ public class SystemTables extends AbstractTables
 				Fragments._System__System /* 3 */
 			};
 		private static final int /*@NonNull*/ [] __System = { 1,1,1,1 };
-
-		private static final ExecutorFragment /*@NonNull*/ [] _header =
-			{
-				Fragments._header__OclAny /* 0 */,
-				Fragments._header__OclElement /* 1 */,
-				Fragments._header__Content /* 2 */,
-				Fragments._header__header /* 3 */
-			};
-		private static final int /*@NonNull*/ [] __header = { 1,1,1,1 };
-
-		private static final ExecutorFragment /*@NonNull*/ [] _img =
-			{
-				Fragments._img__OclAny /* 0 */,
-				Fragments._img__OclElement /* 1 */,
-				Fragments._img__Content /* 2 */,
-				Fragments._img__img /* 3 */
-			};
-		private static final int /*@NonNull*/ [] __img = { 1,1,1,1 };
-
-		private static final ExecutorFragment /*@NonNull*/ [] _paragraph =
-			{
-				Fragments._paragraph__OclAny /* 0 */,
-				Fragments._paragraph__OclElement /* 1 */,
-				Fragments._paragraph__Content /* 2 */,
-				Fragments._paragraph__paragraph /* 3 */
-			};
-		private static final int /*@NonNull*/ [] __paragraph = { 1,1,1,1 };
 
 		/**
 		 *	Install the fragment descriptors in the class descriptors.
@@ -566,10 +528,8 @@ public class SystemTables extends AbstractTables
 			Types._Named.initFragments(_Named, __Named);
 			Types._Page.initFragments(_Page, __Page);
 			Types._Reference.initFragments(_Reference, __Reference);
+			Types._StaticContent.initFragments(_StaticContent, __StaticContent);
 			Types._System.initFragments(_System, __System);
-			Types._header.initFragments(_header, __header);
-			Types._img.initFragments(_img, __img);
-			Types._paragraph.initFragments(_paragraph, __paragraph);
 
 			Init.initEnd();
 		}
@@ -1008,6 +968,40 @@ public class SystemTables extends AbstractTables
 			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
 		};
 
+		private static final ExecutorOperation /*@NonNull*/ [] _StaticContent__StaticContent = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _StaticContent__Content = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _StaticContent__OclAny = {
+			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
+			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
+			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
+			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
+			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
+			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
+			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
+			OCLstdlibTables.Operations._OclAny__toString /* toString() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _StaticContent__OclElement = {
+			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances(Integer[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclBase /* oclBase() */,
+			OCLstdlibTables.Operations._OclElement__1_oclBase /* oclBase(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
+			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
+			OCLstdlibTables.Operations._OclElement__oclExtension /* oclExtension(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclExtensions /* oclExtensions() */,
+			OCLstdlibTables.Operations._OclElement__1_oclExtensions /* oclExtensions(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
+			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
+		};
+
 		private static final ExecutorOperation /*@NonNull*/ [] _System__System = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _System__Named = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _System__OclAny = {
@@ -1028,108 +1022,6 @@ public class SystemTables extends AbstractTables
 			OCLstdlibTables.Operations._OclAny__toString /* toString() */
 		};
 		private static final ExecutorOperation /*@NonNull*/ [] _System__OclElement = {
-			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances(Integer[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
-			OCLstdlibTables.Operations._OclElement__0_oclBase /* oclBase() */,
-			OCLstdlibTables.Operations._OclElement__1_oclBase /* oclBase(OclType[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
-			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
-			OCLstdlibTables.Operations._OclElement__oclExtension /* oclExtension(OclStereotype[1]) */,
-			OCLstdlibTables.Operations._OclElement__0_oclExtensions /* oclExtensions() */,
-			OCLstdlibTables.Operations._OclElement__1_oclExtensions /* oclExtensions(OclStereotype[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
-			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
-		};
-
-		private static final ExecutorOperation /*@NonNull*/ [] _header__header = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _header__Content = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _header__OclAny = {
-			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
-			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
-			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
-			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
-			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
-			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
-			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
-			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
-			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
-			OCLstdlibTables.Operations._OclAny__toString /* toString() */
-		};
-		private static final ExecutorOperation /*@NonNull*/ [] _header__OclElement = {
-			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances(Integer[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
-			OCLstdlibTables.Operations._OclElement__0_oclBase /* oclBase() */,
-			OCLstdlibTables.Operations._OclElement__1_oclBase /* oclBase(OclType[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
-			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
-			OCLstdlibTables.Operations._OclElement__oclExtension /* oclExtension(OclStereotype[1]) */,
-			OCLstdlibTables.Operations._OclElement__0_oclExtensions /* oclExtensions() */,
-			OCLstdlibTables.Operations._OclElement__1_oclExtensions /* oclExtensions(OclStereotype[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
-			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
-		};
-
-		private static final ExecutorOperation /*@NonNull*/ [] _img__img = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _img__Content = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _img__OclAny = {
-			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
-			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
-			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
-			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
-			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
-			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
-			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
-			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
-			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
-			OCLstdlibTables.Operations._OclAny__toString /* toString() */
-		};
-		private static final ExecutorOperation /*@NonNull*/ [] _img__OclElement = {
-			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances(Integer[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
-			OCLstdlibTables.Operations._OclElement__0_oclBase /* oclBase() */,
-			OCLstdlibTables.Operations._OclElement__1_oclBase /* oclBase(OclType[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
-			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
-			OCLstdlibTables.Operations._OclElement__oclExtension /* oclExtension(OclStereotype[1]) */,
-			OCLstdlibTables.Operations._OclElement__0_oclExtensions /* oclExtensions() */,
-			OCLstdlibTables.Operations._OclElement__1_oclExtensions /* oclExtensions(OclStereotype[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
-			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
-			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
-		};
-
-		private static final ExecutorOperation /*@NonNull*/ [] _paragraph__paragraph = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _paragraph__Content = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _paragraph__OclAny = {
-			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
-			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
-			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
-			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
-			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
-			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
-			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
-			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
-			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
-			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
-			OCLstdlibTables.Operations._OclAny__toString /* toString() */
-		};
-		private static final ExecutorOperation /*@NonNull*/ [] _paragraph__OclElement = {
 			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances(Integer[1]) */,
 			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
 			OCLstdlibTables.Operations._OclElement__0_oclBase /* oclBase() */,
@@ -1211,25 +1103,15 @@ public class SystemTables extends AbstractTables
 			Fragments._Reference__OclElement.initOperations(_Reference__OclElement);
 			Fragments._Reference__Reference.initOperations(_Reference__Reference);
 
+			Fragments._StaticContent__Content.initOperations(_StaticContent__Content);
+			Fragments._StaticContent__OclAny.initOperations(_StaticContent__OclAny);
+			Fragments._StaticContent__OclElement.initOperations(_StaticContent__OclElement);
+			Fragments._StaticContent__StaticContent.initOperations(_StaticContent__StaticContent);
+
 			Fragments._System__Named.initOperations(_System__Named);
 			Fragments._System__OclAny.initOperations(_System__OclAny);
 			Fragments._System__OclElement.initOperations(_System__OclElement);
 			Fragments._System__System.initOperations(_System__System);
-
-			Fragments._header__Content.initOperations(_header__Content);
-			Fragments._header__OclAny.initOperations(_header__OclAny);
-			Fragments._header__OclElement.initOperations(_header__OclElement);
-			Fragments._header__header.initOperations(_header__header);
-
-			Fragments._img__Content.initOperations(_img__Content);
-			Fragments._img__OclAny.initOperations(_img__OclAny);
-			Fragments._img__OclElement.initOperations(_img__OclElement);
-			Fragments._img__img.initOperations(_img__img);
-
-			Fragments._paragraph__Content.initOperations(_paragraph__Content);
-			Fragments._paragraph__OclAny.initOperations(_paragraph__OclAny);
-			Fragments._paragraph__OclElement.initOperations(_paragraph__OclElement);
-			Fragments._paragraph__paragraph.initOperations(_paragraph__paragraph);
 
 			Init.initEnd();
 		}
@@ -1281,8 +1163,7 @@ public class SystemTables extends AbstractTables
 			SystemTables.Properties._Element__label,
 			SystemTables.Properties._Named__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
-			OCLstdlibTables.Properties._OclElement__oclContents,
-			SystemTables.Properties._Element__tooltip
+			OCLstdlibTables.Properties._OclElement__oclContents
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Entity = {
@@ -1340,6 +1221,13 @@ public class SystemTables extends AbstractTables
 			OCLstdlibTables.Properties._OclElement__oclContents
 		};
 
+		private static final ExecutorProperty /*@NonNull*/ [] _StaticContent = {
+			OCLstdlibTables.Properties._OclElement__oclContainer,
+			OCLstdlibTables.Properties._OclElement__oclContents,
+			SystemTables.Properties._StaticContent__text,
+			SystemTables.Properties._StaticContent__type
+		};
+
 		private static final ExecutorProperty /*@NonNull*/ [] _System = {
 			SystemTables.Properties._Named__description,
 			SystemTables.Properties._System__entities,
@@ -1349,26 +1237,6 @@ public class SystemTables extends AbstractTables
 			SystemTables.Properties._System__pages,
 			SystemTables.Properties._System__subversion,
 			SystemTables.Properties._System__version
-		};
-
-		private static final ExecutorProperty /*@NonNull*/ [] _header = {
-			SystemTables.Properties._header__level,
-			OCLstdlibTables.Properties._OclElement__oclContainer,
-			OCLstdlibTables.Properties._OclElement__oclContents,
-			SystemTables.Properties._header__text
-		};
-
-		private static final ExecutorProperty /*@NonNull*/ [] _img = {
-			SystemTables.Properties._img__alttext,
-			OCLstdlibTables.Properties._OclElement__oclContainer,
-			OCLstdlibTables.Properties._OclElement__oclContents,
-			SystemTables.Properties._img__url
-		};
-
-		private static final ExecutorProperty /*@NonNull*/ [] _paragraph = {
-			OCLstdlibTables.Properties._OclElement__oclContainer,
-			OCLstdlibTables.Properties._OclElement__oclContents,
-			SystemTables.Properties._paragraph__text
 		};
 
 		/**
@@ -1387,10 +1255,8 @@ public class SystemTables extends AbstractTables
 			Fragments._Named__Named.initProperties(_Named);
 			Fragments._Page__Page.initProperties(_Page);
 			Fragments._Reference__Reference.initProperties(_Reference);
+			Fragments._StaticContent__StaticContent.initProperties(_StaticContent);
 			Fragments._System__System.initProperties(_System);
-			Fragments._header__header.initProperties(_header);
-			Fragments._img__img.initProperties(_img);
-			Fragments._paragraph__paragraph.initProperties(_paragraph);
 
 			Init.initEnd();
 		}

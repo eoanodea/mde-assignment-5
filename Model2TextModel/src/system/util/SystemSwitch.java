@@ -17,10 +17,8 @@ import system.Form;
 import system.Named;
 import system.Page;
 import system.Reference;
+import system.StaticContent;
 import system.SystemPackage;
-import system.header;
-import system.img;
-import system.paragraph;
 
 /**
  * <!-- begin-user-doc -->
@@ -157,24 +155,10 @@ public class SystemSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SystemPackage.IMG: {
-				img img = (img)theEObject;
-				T result = caseimg(img);
-				if (result == null) result = caseContent(img);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SystemPackage.HEADER: {
-				header header = (header)theEObject;
-				T result = caseheader(header);
-				if (result == null) result = caseContent(header);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SystemPackage.PARAGRAPH: {
-				paragraph paragraph = (paragraph)theEObject;
-				T result = caseparagraph(paragraph);
-				if (result == null) result = caseContent(paragraph);
+			case SystemPackage.STATIC_CONTENT: {
+				StaticContent staticContent = (StaticContent)theEObject;
+				T result = caseStaticContent(staticContent);
+				if (result == null) result = caseContent(staticContent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -348,47 +332,17 @@ public class SystemSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>img</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Static Content</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>img</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Static Content</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseimg(img object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>header</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>header</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseheader(header object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>paragraph</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>paragraph</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseparagraph(paragraph object) {
+	public T caseStaticContent(StaticContent object) {
 		return null;
 	}
 

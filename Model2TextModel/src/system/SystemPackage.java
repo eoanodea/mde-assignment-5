@@ -683,22 +683,13 @@ public interface SystemPackage extends EPackage {
 	int ELEMENT__LABEL = NAMED_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Tooltip</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__TOOLTIP = NAMED_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Attr</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__ATTR = NAMED_FEATURE_COUNT + 2;
+	int ELEMENT__ATTR = NAMED_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -707,7 +698,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = NAMED_FEATURE_COUNT + 3;
+	int ELEMENT_FEATURE_COUNT = NAMED_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -719,69 +710,23 @@ public interface SystemPackage extends EPackage {
 	int ELEMENT_OPERATION_COUNT = NAMED_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link system.impl.imgImpl <em>img</em>}' class.
+	 * The meta object id for the '{@link system.impl.StaticContentImpl <em>Static Content</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see system.impl.imgImpl
-	 * @see system.impl.SystemPackageImpl#getimg()
+	 * @see system.impl.StaticContentImpl
+	 * @see system.impl.SystemPackageImpl#getStaticContent()
 	 * @generated
 	 */
-	int IMG = 11;
+	int STATIC_CONTENT = 11;
 
 	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMG__URL = CONTENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Alttext</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMG__ALTTEXT = CONTENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>img</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMG_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>img</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMG_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link system.impl.headerImpl <em>header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see system.impl.headerImpl
-	 * @see system.impl.SystemPackageImpl#getheader()
-	 * @generated
-	 */
-	int HEADER = 12;
-
-	/**
-	 * The feature id for the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__LEVEL = CONTENT_FEATURE_COUNT + 0;
+	int STATIC_CONTENT__TYPE = CONTENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -790,62 +735,25 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__TEXT = CONTENT_FEATURE_COUNT + 1;
+	int STATIC_CONTENT__TEXT = CONTENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>header</em>' class.
+	 * The number of structural features of the '<em>Static Content</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 2;
+	int STATIC_CONTENT_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>header</em>' class.
+	 * The number of operations of the '<em>Static Content</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link system.impl.paragraphImpl <em>paragraph</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see system.impl.paragraphImpl
-	 * @see system.impl.SystemPackageImpl#getparagraph()
-	 * @generated
-	 */
-	int PARAGRAPH = 13;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH__TEXT = CONTENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>paragraph</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>paragraph</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
+	int STATIC_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link system.MethodType <em>Method Type</em>}' enum.
@@ -855,7 +763,7 @@ public interface SystemPackage extends EPackage {
 	 * @see system.impl.SystemPackageImpl#getMethodType()
 	 * @generated
 	 */
-	int METHOD_TYPE = 14;
+	int METHOD_TYPE = 12;
 
 	/**
 	 * The meta object id for the '{@link system.DataType <em>Data Type</em>}' enum.
@@ -865,7 +773,7 @@ public interface SystemPackage extends EPackage {
 	 * @see system.impl.SystemPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 15;
+	int DATA_TYPE = 13;
 
 	/**
 	 * Returns the meta object for class '{@link system.Named <em>Named</em>}'.
@@ -1207,17 +1115,6 @@ public interface SystemPackage extends EPackage {
 	EAttribute getElement_Label();
 
 	/**
-	 * Returns the meta object for the attribute '{@link system.Element#getTooltip <em>Tooltip</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Tooltip</em>'.
-	 * @see system.Element#getTooltip()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_Tooltip();
-
-	/**
 	 * Returns the meta object for the reference '{@link system.Element#getAttr <em>Attr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1229,89 +1126,36 @@ public interface SystemPackage extends EPackage {
 	EReference getElement_Attr();
 
 	/**
-	 * Returns the meta object for class '{@link system.img <em>img</em>}'.
+	 * Returns the meta object for class '{@link system.StaticContent <em>Static Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>img</em>'.
-	 * @see system.img
+	 * @return the meta object for class '<em>Static Content</em>'.
+	 * @see system.StaticContent
 	 * @generated
 	 */
-	EClass getimg();
+	EClass getStaticContent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link system.img#getUrl <em>Url</em>}'.
+	 * Returns the meta object for the attribute '{@link system.StaticContent#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Url</em>'.
-	 * @see system.img#getUrl()
-	 * @see #getimg()
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see system.StaticContent#getType()
+	 * @see #getStaticContent()
 	 * @generated
 	 */
-	EAttribute getimg_Url();
+	EAttribute getStaticContent_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link system.img#getAlttext <em>Alttext</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Alttext</em>'.
-	 * @see system.img#getAlttext()
-	 * @see #getimg()
-	 * @generated
-	 */
-	EAttribute getimg_Alttext();
-
-	/**
-	 * Returns the meta object for class '{@link system.header <em>header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>header</em>'.
-	 * @see system.header
-	 * @generated
-	 */
-	EClass getheader();
-
-	/**
-	 * Returns the meta object for the attribute '{@link system.header#getLevel <em>Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Level</em>'.
-	 * @see system.header#getLevel()
-	 * @see #getheader()
-	 * @generated
-	 */
-	EAttribute getheader_Level();
-
-	/**
-	 * Returns the meta object for the attribute '{@link system.header#getText <em>Text</em>}'.
+	 * Returns the meta object for the attribute '{@link system.StaticContent#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see system.header#getText()
-	 * @see #getheader()
+	 * @see system.StaticContent#getText()
+	 * @see #getStaticContent()
 	 * @generated
 	 */
-	EAttribute getheader_Text();
-
-	/**
-	 * Returns the meta object for class '{@link system.paragraph <em>paragraph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>paragraph</em>'.
-	 * @see system.paragraph
-	 * @generated
-	 */
-	EClass getparagraph();
-
-	/**
-	 * Returns the meta object for the attribute '{@link system.paragraph#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see system.paragraph#getText()
-	 * @see #getparagraph()
-	 * @generated
-	 */
-	EAttribute getparagraph_Text();
+	EAttribute getStaticContent_Text();
 
 	/**
 	 * Returns the meta object for enum '{@link system.MethodType <em>Method Type</em>}'.
@@ -1635,14 +1479,6 @@ public interface SystemPackage extends EPackage {
 		EAttribute ELEMENT__LABEL = eINSTANCE.getElement_Label();
 
 		/**
-		 * The meta object literal for the '<em><b>Tooltip</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__TOOLTIP = eINSTANCE.getElement_Tooltip();
-
-		/**
 		 * The meta object literal for the '<em><b>Attr</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1651,48 +1487,22 @@ public interface SystemPackage extends EPackage {
 		EReference ELEMENT__ATTR = eINSTANCE.getElement_Attr();
 
 		/**
-		 * The meta object literal for the '{@link system.impl.imgImpl <em>img</em>}' class.
+		 * The meta object literal for the '{@link system.impl.StaticContentImpl <em>Static Content</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see system.impl.imgImpl
-		 * @see system.impl.SystemPackageImpl#getimg()
+		 * @see system.impl.StaticContentImpl
+		 * @see system.impl.SystemPackageImpl#getStaticContent()
 		 * @generated
 		 */
-		EClass IMG = eINSTANCE.getimg();
+		EClass STATIC_CONTENT = eINSTANCE.getStaticContent();
 
 		/**
-		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IMG__URL = eINSTANCE.getimg_Url();
-
-		/**
-		 * The meta object literal for the '<em><b>Alttext</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IMG__ALTTEXT = eINSTANCE.getimg_Alttext();
-
-		/**
-		 * The meta object literal for the '{@link system.impl.headerImpl <em>header</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see system.impl.headerImpl
-		 * @see system.impl.SystemPackageImpl#getheader()
-		 * @generated
-		 */
-		EClass HEADER = eINSTANCE.getheader();
-
-		/**
-		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute HEADER__LEVEL = eINSTANCE.getheader_Level();
+		EAttribute STATIC_CONTENT__TYPE = eINSTANCE.getStaticContent_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
@@ -1700,25 +1510,7 @@ public interface SystemPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute HEADER__TEXT = eINSTANCE.getheader_Text();
-
-		/**
-		 * The meta object literal for the '{@link system.impl.paragraphImpl <em>paragraph</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see system.impl.paragraphImpl
-		 * @see system.impl.SystemPackageImpl#getparagraph()
-		 * @generated
-		 */
-		EClass PARAGRAPH = eINSTANCE.getparagraph();
-
-		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAGRAPH__TEXT = eINSTANCE.getparagraph_Text();
+		EAttribute STATIC_CONTENT__TEXT = eINSTANCE.getStaticContent_Text();
 
 		/**
 		 * The meta object literal for the '{@link system.MethodType <em>Method Type</em>}' enum.

@@ -23,10 +23,8 @@ import system.MethodType;
 import system.Named;
 import system.Page;
 import system.Reference;
+import system.StaticContent;
 import system.SystemPackage;
-import system.header;
-import system.img;
-import system.paragraph;
 
 /**
  * <!-- begin-user-doc -->
@@ -138,12 +136,8 @@ public class SystemValidator extends EObjectValidator {
 				return validateForm((Form)value, diagnostics, context);
 			case SystemPackage.ELEMENT:
 				return validateElement((Element)value, diagnostics, context);
-			case SystemPackage.IMG:
-				return validateimg((img)value, diagnostics, context);
-			case SystemPackage.HEADER:
-				return validateheader((header)value, diagnostics, context);
-			case SystemPackage.PARAGRAPH:
-				return validateparagraph((paragraph)value, diagnostics, context);
+			case SystemPackage.STATIC_CONTENT:
+				return validateStaticContent((StaticContent)value, diagnostics, context);
 			case SystemPackage.METHOD_TYPE:
 				return validateMethodType((MethodType)value, diagnostics, context);
 			case SystemPackage.DATA_TYPE:
@@ -288,26 +282,8 @@ public class SystemValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateimg(img img, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(img, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateheader(header header, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(header, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateparagraph(paragraph paragraph, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(paragraph, diagnostics, context);
+	public boolean validateStaticContent(StaticContent staticContent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(staticContent, diagnostics, context);
 	}
 
 	/**

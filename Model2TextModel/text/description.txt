@@ -49,18 +49,10 @@ Package system <platform:/resource/Model2TextModel/model/System.ecore/>
 
   Class Element -> Named
     Attribute label : EString
-    Attribute tooltip : EString
     Reference attr : Attribute
 
-  Class img -> Content
-    Attribute url : EString
-    Attribute alttext : EString
-
-  Class header -> Content
-    Attribute level : EBigInteger
-    Attribute text : EString
-
-  Class paragraph -> Content
+  Class StaticContent -> Content
+    Attribute type : EString
     Attribute text : EString
 
   Enum MethodType

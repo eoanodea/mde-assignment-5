@@ -32,13 +32,13 @@ CREATE TABLE pages (
 	title varchar(255),
 	url varchar(255),
 	description varchar(255),
-	is_home_page INT,
+	is_home_page varchar(255),
     system_id INT REFERENCES system(id)
 );
 
 CREATE TABLE static_content (
 	id SERIAL PRIMARY KEY, 
-	level INT,
+	type varchar(255),
 	text varchar(255),
 	page_id INT REFERENCES pages(id)
 );
@@ -56,22 +56,24 @@ CREATE TABLE attributes (
 	name varchar(255),
 	description varchar(255),
 	type varchar(255),
-	is_primary_key INT,
+	is_primary_key varchar(255),
 	entity_id INT REFERENCES entities(id)
 );
 
 CREATE TABLE dynamic_content (
 	id SERIAL PRIMARY KEY, 
-	attribute_id INT REFERENCES attributes(id),
-	entity_id INT REFERENCES entities(id),
+	attribute_name varchar(255),
+	entity_name varchar(255),
 	page_id INT REFERENCES pages(id)
 );
 
 CREATE TABLE forms (
 	id SERIAL PRIMARY KEY,
 	name varchar(255),
+	description varchar(255),
 	method varchar(255),
-	entity_id INT REFERENCES entities(id)
+	entity_name varchar(255),
+	page_id INT REFERENCES pages(id)
 );
 
 CREATE TABLE elements (
@@ -79,9 +81,8 @@ CREATE TABLE elements (
 	name varchar(255),
 	description varchar(255),
 	label varchar(255),
-	tooltip varchar(255),
-	attribute_id INT REFERENCES attributes(id),
-	form_id INT REFERENCES forms(id)
+	attribute_name varchar(255),
+	form_name varchar(255)
 );
 
 
@@ -93,28 +94,47 @@ BECAUSE OF POINT 1 I DIDNT INSERT NOTHING INTO THE REFERENCES AS THEY DO NOT HAV
 3.DONT KNOW IF THE WAY I GOT DYNAMICCONTENT AND FORM IS THE RIGHT WAY, SAME WITH THE ATTRIBUTE
 [/comment]
 
-INSERT INTO system (name, description, version, sub_version) VALUES ('[aSystem.name/]', '[aSystem.description/]', [aSystem.version/], [aSystem.subversion/])
-
+INSERT INTO system (name, description, version, sub_version) VALUES ('[aSystem.name/]', '[aSystem.description/]', [aSystem.version/], [aSystem.subversion/]);
 [for (it : Page | aSystem.pages)]	
-INSERT INTO pages (title, url, description, is_home_page) VALUES ('[it.name/]', '[it.url/]', [it.description/], [it.isHomePage/])
-[for (it2 : DynamicContent | it.content)]	
-INSERT INTO dynamic_content (page_id) VALUES ('[it.identifier/]')
-[/for]
-[for (it3 : Form | it.content)]	
-INSERT INTO forms (name, method) VALUES ('[it3.name/]', '[it3.method/]')
-[for (it4 : Element | it3.elements)]	
-INSERT INTO elements (name, description, label, tooltip) VALUES ('[it4.name/]', '[it4.description/]', '[it4.label/]', '[it4.tooltip/]')
-[/for]
-[/for]
+	[let pageId : Integer = i]
+
+INSERT INTO pages (title, url, description, is_home_page, system_id) VALUES ('[it.name/]', '[it.url/]', '[it.description/]', '[it.isHomePage/]', 1);
+	
+		
+		[for (it2 : Content | it.content)]
+	
+		[if (it2.eClass().name.equalsIgnoreCase('StaticContent'))]
+	
+INSERT INTO static_content (type, text, page_id) VALUES ('[it2.eGet('type')/]', '[it2.eGet('text')/]', [pageId/]);
+		
+		[elseif (it2.eClass().name.equalsIgnoreCase('Form'))]	
+INSERT INTO forms (name, description, method, entity_name, page_id) VALUES ('[it2.eGet('name')/]', '[it2.eGet('description')/]', '[it2.eGet('method')/]','[it2.eGet('entity').eGet('name')/]', [pageId/]);
+		
+			[for (it3 : Element | it2.eGet('elements'))]
+INSERT INTO elements (name, description, label, attribute_name, form_name) VALUES ('[it3.name/]', '[it3.description/]', '[it3.label/]', '[it3.eGet('attr').eGet('name')/]', '[it2.eGet('name')/]');
+			[/for]
+		
+		[elseif (it2.eClass().name.equalsIgnoreCase('DynamicContent'))]
+INSERT INTO dynamic_content (attribute_name, entity_name, page_id) VALUES ('[it2.eGet('attr')/]', '[it2.eGet('attr')/]',[pageId/]);
+		[/if]
+		[/for]	
+	
+		
+		[for (it : Entity | aSystem.entities)]
+			[let entityId : Integer = i]
+INSERT INTO entities (name, description, system_id) VALUES ('[it.name/]', '[it.description/]', 1);
+				[for (it2 : Attribute | it.features)]
+INSERT INTO attributes (name, description, type, is_primary_key, entity_id) VALUES ('[it2.name/]','[it2.description/]', '[it2.type/]', '[it2.IsPrimaryKey/]', [entityId/]); 
+				[/for]	
+			[/let]
+		[/for]
+	[/let]
 [/for]
 
-[for (it : Entity | aSystem.entities)]
-INSERT INTO entities (name, description) VALUES ('[it.name/]', [it.description/])
-[for (it2 : Attribute | it.features)]
-INSERT INTO attributes (name, description, type, is_primary_key) VALUES ('[it2.name/]','[it2.description/]', '[it2.type/]', [it2.IsPrimaryKey/]) 
-[/for]
-[/for]
 
+SELECT (title, description, url) FROM pages WHERE is_home_page = 'true';
+
+SELECT * FROM attributes WHERE entity_id = 1 AND is_primary_key = 'true';
 
 
 

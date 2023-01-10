@@ -5,35 +5,35 @@ package system;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>paragraph</b></em>'.
+ * A representation of the model object '<em><b>Paragraph</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link system.paragraph#getText <em>Text</em>}</li>
+ *   <li>{@link system.Paragraph#getText <em>Text</em>}</li>
  * </ul>
  *
- * @see system.SystemPackage#getparagraph()
+ * @see system.SystemPackage#getParagraph()
  * @model
  * @generated
  */
-public interface paragraph extends Content {
+public interface Paragraph extends Content {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
-	 * @see system.SystemPackage#getparagraph_Text()
+	 * @see system.SystemPackage#getParagraph_Text()
 	 * @model
 	 * @generated
 	 */
 	String getText();
 
 	/**
-	 * Sets the value of the '{@link system.paragraph#getText <em>Text</em>}' attribute.
+	 * Sets the value of the '{@link system.Paragraph#getText <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Text</em>' attribute.
@@ -42,4 +42,4 @@ public interface paragraph extends Content {
 	 */
 	void setText(String value);
 
-} // paragraph
+} // Paragraph

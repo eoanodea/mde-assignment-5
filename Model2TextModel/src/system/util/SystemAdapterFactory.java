@@ -19,10 +19,8 @@ import system.Form;
 import system.Named;
 import system.Page;
 import system.Reference;
+import system.StaticContent;
 import system.SystemPackage;
-import system.header;
-import system.img;
-import system.paragraph;
 
 /**
  * <!-- begin-user-doc -->
@@ -125,16 +123,8 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 				return createElementAdapter();
 			}
 			@Override
-			public Adapter caseimg(img object) {
-				return createimgAdapter();
-			}
-			@Override
-			public Adapter caseheader(header object) {
-				return createheaderAdapter();
-			}
-			@Override
-			public Adapter caseparagraph(paragraph object) {
-				return createparagraphAdapter();
+			public Adapter caseStaticContent(StaticContent object) {
+				return createStaticContentAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -311,44 +301,16 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link system.img <em>img</em>}'.
+	 * Creates a new adapter for an object of class '{@link system.StaticContent <em>Static Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see system.img
+	 * @see system.StaticContent
 	 * @generated
 	 */
-	public Adapter createimgAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link system.header <em>header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see system.header
-	 * @generated
-	 */
-	public Adapter createheaderAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link system.paragraph <em>paragraph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see system.paragraph
-	 * @generated
-	 */
-	public Adapter createparagraphAdapter() {
+	public Adapter createStaticContentAdapter() {
 		return null;
 	}
 

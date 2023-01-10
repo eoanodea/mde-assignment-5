@@ -23,11 +23,9 @@ import system.MethodType;
 import system.Named;
 import system.Page;
 import system.Reference;
+import system.StaticContent;
 import system.SystemFactory;
 import system.SystemPackage;
-import system.header;
-import system.img;
-import system.paragraph;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,9 +82,7 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
 			case SystemPackage.DYNAMIC_CONTENT: return createDynamicContent();
 			case SystemPackage.FORM: return createForm();
 			case SystemPackage.ELEMENT: return createElement();
-			case SystemPackage.IMG: return createimg();
-			case SystemPackage.HEADER: return createheader();
-			case SystemPackage.PARAGRAPH: return createparagraph();
+			case SystemPackage.STATIC_CONTENT: return createStaticContent();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -241,29 +237,9 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public img createimg() {
-		imgImpl img = new imgImpl();
-		return img;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public header createheader() {
-		headerImpl header = new headerImpl();
-		return header;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public paragraph createparagraph() {
-		paragraphImpl paragraph = new paragraphImpl();
-		return paragraph;
+	public StaticContent createStaticContent() {
+		StaticContentImpl staticContent = new StaticContentImpl();
+		return staticContent;
 	}
 
 	/**

@@ -6,43 +6,50 @@
     xmlns:sys="platform:/resource/Model2TextModel/model/System.ecore/"
     xsi:schemaLocation="platform:/resource/Model2TextModel/model/System.ecore/ System.ecore"
     name="sys"
-    version="1"
-    subversion="0">
+    description="Here is a great system"
+    version="2"
+    subversion="5">
   <entities
-      name="User">
+      name="User"
+      description="A user who has signed up">
     <features
         xsi:type="sys:Attribute"
-        name="identifier"
+        name="id"
+        description="Unique identifier for the user"
         IsPrimaryKey="true"/>
     <features
         xsi:type="sys:Attribute"
         name="username"
-        type="text"/>
+        description="The username of the user"
+        type="string"/>
   </entities>
   <pages name="Home"
+      description="the homepage"
       url="website.com"
       isHomePage="true">
     <content
-        xsi:type="sys:header"
-        level="1"
+        xsi:type="sys:StaticContent"
+        type="h1"
         text="Welcome to the homepage"/>
     <content
         xsi:type="sys:Form"
         name="Sign up"
+        description="Form used to sign up users"
         entity="//@entities.0">
       <elements
           name="username"
+          description="The users username"
           label="Enter your username"
-          tooltip="Enter your username"
           attr="//@entities.0/@features.1"/>
     </content>
   </pages>
   <pages name="Profile"
+      description="The profile page"
       url="website.com/profile">
     <content
-        xsi:type="sys:header"
-        level="1"
-        text="Profile Page"/>
+        xsi:type="sys:StaticContent"
+        type="h1"
+        text="This is the profile page"/>
     <content
         xsi:type="sys:DynamicContent"
         entity="//@entities.0"

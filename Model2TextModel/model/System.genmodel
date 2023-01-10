@@ -60,19 +60,11 @@
     </genClasses>
     <genClasses ecoreClass="System.ecore#//Element">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Element/label"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//Element/tooltip"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference System.ecore#//Element/attr"/>
     </genClasses>
-    <genClasses ecoreClass="System.ecore#//img">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//img/url"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//img/alttext"/>
-    </genClasses>
-    <genClasses ecoreClass="System.ecore#//header">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//header/level"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//header/text"/>
-    </genClasses>
-    <genClasses ecoreClass="System.ecore#//paragraph">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//paragraph/text"/>
+    <genClasses ecoreClass="System.ecore#//StaticContent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//StaticContent/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute System.ecore#//StaticContent/text"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -2,51 +2,49 @@
  */
 package system.impl;
 
-import java.math.BigInteger;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import system.Header;
+import system.StaticContent;
 import system.SystemPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Header</b></em>'.
+ * An implementation of the model object '<em><b>Static Content</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link system.impl.HeaderImpl#getLevel <em>Level</em>}</li>
- *   <li>{@link system.impl.HeaderImpl#getText <em>Text</em>}</li>
+ *   <li>{@link system.impl.StaticContentImpl#getType <em>Type</em>}</li>
+ *   <li>{@link system.impl.StaticContentImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class HeaderImpl extends ContentImpl implements Header {
+public class StaticContentImpl extends ContentImpl implements StaticContent {
 	/**
-	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLevel()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigInteger LEVEL_EDEFAULT = null;
+	protected static final String TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLevel() <em>Level</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLevel()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected BigInteger level = LEVEL_EDEFAULT;
+	protected String type = TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -73,7 +71,7 @@ public class HeaderImpl extends ContentImpl implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected HeaderImpl() {
+	protected StaticContentImpl() {
 		super();
 	}
 
@@ -84,7 +82,7 @@ public class HeaderImpl extends ContentImpl implements Header {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SystemPackage.Literals.HEADER;
+		return SystemPackage.Literals.STATIC_CONTENT;
 	}
 
 	/**
@@ -92,8 +90,8 @@ public class HeaderImpl extends ContentImpl implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BigInteger getLevel() {
-		return level;
+	public String getType() {
+		return type;
 	}
 
 	/**
@@ -101,11 +99,11 @@ public class HeaderImpl extends ContentImpl implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLevel(BigInteger newLevel) {
-		BigInteger oldLevel = level;
-		level = newLevel;
+	public void setType(String newType) {
+		String oldType = type;
+		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.HEADER__LEVEL, oldLevel, level));
+			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.STATIC_CONTENT__TYPE, oldType, type));
 	}
 
 	/**
@@ -126,7 +124,7 @@ public class HeaderImpl extends ContentImpl implements Header {
 		String oldText = text;
 		text = newText;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.HEADER__TEXT, oldText, text));
+			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.STATIC_CONTENT__TEXT, oldText, text));
 	}
 
 	/**
@@ -137,9 +135,9 @@ public class HeaderImpl extends ContentImpl implements Header {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SystemPackage.HEADER__LEVEL:
-				return getLevel();
-			case SystemPackage.HEADER__TEXT:
+			case SystemPackage.STATIC_CONTENT__TYPE:
+				return getType();
+			case SystemPackage.STATIC_CONTENT__TEXT:
 				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -153,10 +151,10 @@ public class HeaderImpl extends ContentImpl implements Header {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SystemPackage.HEADER__LEVEL:
-				setLevel((BigInteger)newValue);
+			case SystemPackage.STATIC_CONTENT__TYPE:
+				setType((String)newValue);
 				return;
-			case SystemPackage.HEADER__TEXT:
+			case SystemPackage.STATIC_CONTENT__TEXT:
 				setText((String)newValue);
 				return;
 		}
@@ -171,10 +169,10 @@ public class HeaderImpl extends ContentImpl implements Header {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SystemPackage.HEADER__LEVEL:
-				setLevel(LEVEL_EDEFAULT);
+			case SystemPackage.STATIC_CONTENT__TYPE:
+				setType(TYPE_EDEFAULT);
 				return;
-			case SystemPackage.HEADER__TEXT:
+			case SystemPackage.STATIC_CONTENT__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
 		}
@@ -189,9 +187,9 @@ public class HeaderImpl extends ContentImpl implements Header {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SystemPackage.HEADER__LEVEL:
-				return LEVEL_EDEFAULT == null ? level != null : !LEVEL_EDEFAULT.equals(level);
-			case SystemPackage.HEADER__TEXT:
+			case SystemPackage.STATIC_CONTENT__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case SystemPackage.STATIC_CONTENT__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 		}
 		return super.eIsSet(featureID);
@@ -207,12 +205,12 @@ public class HeaderImpl extends ContentImpl implements Header {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (level: ");
-		result.append(level);
+		result.append(" (type: ");
+		result.append(type);
 		result.append(", text: ");
 		result.append(text);
 		result.append(')');
 		return result.toString();
 	}
 
-} //HeaderImpl
+} //StaticContentImpl
