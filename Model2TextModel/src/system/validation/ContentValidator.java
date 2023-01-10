@@ -4,6 +4,8 @@
  */
 package system.validation;
 
+import java.math.BigInteger;
+
 
 /**
  * A sample validator interface for {@link system.Content}.
@@ -13,5 +15,7 @@ package system.validation;
  */
 public interface ContentValidator {
 	boolean validate();
+
+	boolean validateIdentifier(BigInteger value);
 
 }

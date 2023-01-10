@@ -2,6 +2,7 @@
  */
 package system.impl;
 
+import java.math.BigInteger;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
@@ -18,6 +19,7 @@ import system.SystemPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link system.impl.NamedImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link system.impl.NamedImpl#getName <em>Name</em>}</li>
  *   <li>{@link system.impl.NamedImpl#getDescription <em>Description</em>}</li>
  * </ul>
@@ -25,6 +27,26 @@ import system.SystemPackage;
  * @generated
  */
 public class NamedImpl extends MinimalEObjectImpl.Container implements Named {
+	/**
+	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final BigInteger IDENTIFIER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected BigInteger identifier = IDENTIFIER_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,6 +111,27 @@ public class NamedImpl extends MinimalEObjectImpl.Container implements Named {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BigInteger getIdentifier() {
+		return identifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIdentifier(BigInteger newIdentifier) {
+		BigInteger oldIdentifier = identifier;
+		identifier = newIdentifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.NAMED__IDENTIFIER, oldIdentifier, identifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getName() {
 		return name;
 	}
@@ -134,6 +177,8 @@ public class NamedImpl extends MinimalEObjectImpl.Container implements Named {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SystemPackage.NAMED__IDENTIFIER:
+				return getIdentifier();
 			case SystemPackage.NAMED__NAME:
 				return getName();
 			case SystemPackage.NAMED__DESCRIPTION:
@@ -150,6 +195,9 @@ public class NamedImpl extends MinimalEObjectImpl.Container implements Named {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SystemPackage.NAMED__IDENTIFIER:
+				setIdentifier((BigInteger)newValue);
+				return;
 			case SystemPackage.NAMED__NAME:
 				setName((String)newValue);
 				return;
@@ -168,6 +216,9 @@ public class NamedImpl extends MinimalEObjectImpl.Container implements Named {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SystemPackage.NAMED__IDENTIFIER:
+				setIdentifier(IDENTIFIER_EDEFAULT);
+				return;
 			case SystemPackage.NAMED__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -186,6 +237,8 @@ public class NamedImpl extends MinimalEObjectImpl.Container implements Named {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SystemPackage.NAMED__IDENTIFIER:
+				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
 			case SystemPackage.NAMED__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SystemPackage.NAMED__DESCRIPTION:
@@ -204,7 +257,9 @@ public class NamedImpl extends MinimalEObjectImpl.Container implements Named {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
+		result.append(" (identifier: ");
+		result.append(identifier);
+		result.append(", name: ");
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);

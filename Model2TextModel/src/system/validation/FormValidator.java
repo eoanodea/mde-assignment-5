@@ -19,6 +19,8 @@ import system.MethodType;
 public interface FormValidator {
 	boolean validate();
 
+	boolean validateName(String value);
+
 	boolean validateMethod(MethodType value);
 	boolean validateElements(EList<Element> value);
 	boolean validateEntity(Entity value);

@@ -4,6 +4,8 @@
  */
 package system.validation;
 
+import java.math.BigInteger;
+
 
 /**
  * A sample validator interface for {@link system.Named}.
@@ -13,6 +15,8 @@ package system.validation;
  */
 public interface NamedValidator {
 	boolean validate();
+
+	boolean validateIdentifier(BigInteger value);
 
 	boolean validateName(String value);
 

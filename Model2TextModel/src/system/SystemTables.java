@@ -217,7 +217,6 @@ public class SystemTables extends AbstractTables
 
 		private static final ExecutorFragment _Form__Content = new ExecutorFragment(Types._Form, SystemTables.Types._Content);
 		private static final ExecutorFragment _Form__Form = new ExecutorFragment(Types._Form, SystemTables.Types._Form);
-		private static final ExecutorFragment _Form__Named = new ExecutorFragment(Types._Form, SystemTables.Types._Named);
 		private static final ExecutorFragment _Form__OclAny = new ExecutorFragment(Types._Form, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _Form__OclElement = new ExecutorFragment(Types._Form, OCLstdlibTables.Types._OclElement);
 
@@ -326,7 +325,8 @@ public class SystemTables extends AbstractTables
 		public static final ExecutorProperty _Attribute__DynamicContent__attr = new ExecutorPropertyWithImplementation("DynamicContent", Types._Attribute, 2, new EcoreLibraryOppositeProperty(SystemPackage.Literals.DYNAMIC_CONTENT__ATTR));
 		public static final ExecutorProperty _Attribute__Element__attr = new ExecutorPropertyWithImplementation("Element", Types._Attribute, 3, new EcoreLibraryOppositeProperty(SystemPackage.Literals.ELEMENT__ATTR));
 
-		public static final ExecutorProperty _Content__Page__content = new ExecutorPropertyWithImplementation("Page", Types._Content, 0, new EcoreLibraryOppositeProperty(SystemPackage.Literals.PAGE__CONTENT));
+		public static final ExecutorProperty _Content__identifier = new EcoreExecutorProperty(SystemPackage.Literals.CONTENT__IDENTIFIER, Types._Content, 0);
+		public static final ExecutorProperty _Content__Page__content = new ExecutorPropertyWithImplementation("Page", Types._Content, 1, new EcoreLibraryOppositeProperty(SystemPackage.Literals.PAGE__CONTENT));
 
 		public static final ExecutorProperty _DynamicContent__attr = new EcoreExecutorProperty(SystemPackage.Literals.DYNAMIC_CONTENT__ATTR, Types._DynamicContent, 0);
 		public static final ExecutorProperty _DynamicContent__entity = new EcoreExecutorProperty(SystemPackage.Literals.DYNAMIC_CONTENT__ENTITY, Types._DynamicContent, 1);
@@ -346,9 +346,11 @@ public class SystemTables extends AbstractTables
 		public static final ExecutorProperty _Form__elements = new EcoreExecutorProperty(SystemPackage.Literals.FORM__ELEMENTS, Types._Form, 0);
 		public static final ExecutorProperty _Form__entity = new EcoreExecutorProperty(SystemPackage.Literals.FORM__ENTITY, Types._Form, 1);
 		public static final ExecutorProperty _Form__method = new EcoreExecutorProperty(SystemPackage.Literals.FORM__METHOD, Types._Form, 2);
+		public static final ExecutorProperty _Form__name = new EcoreExecutorProperty(SystemPackage.Literals.FORM__NAME, Types._Form, 3);
 
 		public static final ExecutorProperty _Named__description = new EcoreExecutorProperty(SystemPackage.Literals.NAMED__DESCRIPTION, Types._Named, 0);
-		public static final ExecutorProperty _Named__name = new EcoreExecutorProperty(SystemPackage.Literals.NAMED__NAME, Types._Named, 1);
+		public static final ExecutorProperty _Named__identifier = new EcoreExecutorProperty(SystemPackage.Literals.NAMED__IDENTIFIER, Types._Named, 1);
+		public static final ExecutorProperty _Named__name = new EcoreExecutorProperty(SystemPackage.Literals.NAMED__NAME, Types._Named, 2);
 
 		public static final ExecutorProperty _Page__content = new EcoreExecutorProperty(SystemPackage.Literals.PAGE__CONTENT, Types._Page, 0);
 		public static final ExecutorProperty _Page__isHomePage = new EcoreExecutorProperty(SystemPackage.Literals.PAGE__IS_HOME_PAGE, Types._Page, 1);
@@ -452,10 +454,9 @@ public class SystemTables extends AbstractTables
 				Fragments._Form__OclAny /* 0 */,
 				Fragments._Form__OclElement /* 1 */,
 				Fragments._Form__Content /* 2 */,
-				Fragments._Form__Named /* 2 */,
 				Fragments._Form__Form /* 3 */
 			};
-		private static final int /*@NonNull*/ [] __Form = { 1,1,2,1 };
+		private static final int /*@NonNull*/ [] __Form = { 1,1,1,1 };
 
 		private static final ExecutorFragment /*@NonNull*/ [] _MethodType =
 			{
@@ -794,7 +795,6 @@ public class SystemTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Form__Form = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Form__Content = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _Form__Named = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Form__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -1078,7 +1078,6 @@ public class SystemTables extends AbstractTables
 
 			Fragments._Form__Content.initOperations(_Form__Content);
 			Fragments._Form__Form.initOperations(_Form__Form);
-			Fragments._Form__Named.initOperations(_Form__Named);
 			Fragments._Form__OclAny.initOperations(_Form__OclAny);
 			Fragments._Form__OclElement.initOperations(_Form__OclElement);
 
@@ -1134,6 +1133,7 @@ public class SystemTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _Attribute = {
 			SystemTables.Properties._Attribute__IsPrimaryKey,
 			SystemTables.Properties._Named__description,
+			SystemTables.Properties._Named__identifier,
 			SystemTables.Properties._Named__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
@@ -1141,6 +1141,7 @@ public class SystemTables extends AbstractTables
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Content = {
+			SystemTables.Properties._Content__identifier,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
 		};
@@ -1153,6 +1154,7 @@ public class SystemTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _DynamicContent = {
 			SystemTables.Properties._DynamicContent__attr,
 			SystemTables.Properties._DynamicContent__entity,
+			SystemTables.Properties._Content__identifier,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
 		};
@@ -1160,6 +1162,7 @@ public class SystemTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _Element = {
 			SystemTables.Properties._Element__attr,
 			SystemTables.Properties._Named__description,
+			SystemTables.Properties._Named__identifier,
 			SystemTables.Properties._Element__label,
 			SystemTables.Properties._Named__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
@@ -1169,6 +1172,7 @@ public class SystemTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _Entity = {
 			SystemTables.Properties._Named__description,
 			SystemTables.Properties._Entity__features,
+			SystemTables.Properties._Named__identifier,
 			SystemTables.Properties._Named__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
@@ -1176,17 +1180,18 @@ public class SystemTables extends AbstractTables
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Feature = {
 			SystemTables.Properties._Named__description,
+			SystemTables.Properties._Named__identifier,
 			SystemTables.Properties._Named__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Form = {
-			SystemTables.Properties._Named__description,
 			SystemTables.Properties._Form__elements,
 			SystemTables.Properties._Form__entity,
+			SystemTables.Properties._Content__identifier,
 			SystemTables.Properties._Form__method,
-			SystemTables.Properties._Named__name,
+			SystemTables.Properties._Form__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
 		};
@@ -1198,6 +1203,7 @@ public class SystemTables extends AbstractTables
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Named = {
 			SystemTables.Properties._Named__description,
+			SystemTables.Properties._Named__identifier,
 			SystemTables.Properties._Named__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
@@ -1206,6 +1212,7 @@ public class SystemTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _Page = {
 			SystemTables.Properties._Page__content,
 			SystemTables.Properties._Named__description,
+			SystemTables.Properties._Named__identifier,
 			SystemTables.Properties._Page__isHomePage,
 			SystemTables.Properties._Named__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
@@ -1216,12 +1223,14 @@ public class SystemTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _Reference = {
 			SystemTables.Properties._Named__description,
 			SystemTables.Properties._Reference__foreignKey,
+			SystemTables.Properties._Named__identifier,
 			SystemTables.Properties._Named__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _StaticContent = {
+			SystemTables.Properties._Content__identifier,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			SystemTables.Properties._StaticContent__text,
@@ -1231,6 +1240,7 @@ public class SystemTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _System = {
 			SystemTables.Properties._Named__description,
 			SystemTables.Properties._System__entities,
+			SystemTables.Properties._Named__identifier,
 			SystemTables.Properties._Named__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,

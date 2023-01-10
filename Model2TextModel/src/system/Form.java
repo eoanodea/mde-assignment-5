@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link system.Form#getName <em>Name</em>}</li>
  *   <li>{@link system.Form#getMethod <em>Method</em>}</li>
  *   <li>{@link system.Form#getElements <em>Elements</em>}</li>
  *   <li>{@link system.Form#getEntity <em>Entity</em>}</li>
@@ -22,7 +23,29 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Form extends Named, Content {
+public interface Form extends Content {
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see system.SystemPackage#getForm_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link system.Form#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Method</b></em>' attribute.
 	 * The literals are from the enumeration {@link system.MethodType}.

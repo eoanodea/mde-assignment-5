@@ -8,6 +8,7 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 Package system <platform:/resource/Model2TextModel/model/System.ecore/>
 
   Class Named
+    Attribute identifier : EBigInteger<<1..1>>
     Attribute name : EString
     Attribute description : EString
 
@@ -37,12 +38,18 @@ Package system <platform:/resource/Model2TextModel/model/System.ecore/>
     Operation ValidPageURL(EDiagnosticChain, EMap) : EBoolean
 
   Class Content
+    Attribute identifier : EBigInteger<<1..1>>
+
+  Class StaticContent -> Content
+    Attribute type : EString
+    Attribute text : EString
 
   Class DynamicContent -> Content
     Reference entity : Entity<<1..1>>
     Reference attr : Attribute<<1..1>>
 
-  Class Form -> Named, Content
+  Class Form -> Content
+    Attribute name : EString
     Attribute method : MethodType<<1..1>>
     Reference elements : Element<<0..*>>
     Reference entity : Entity
@@ -50,10 +57,6 @@ Package system <platform:/resource/Model2TextModel/model/System.ecore/>
   Class Element -> Named
     Attribute label : EString
     Reference attr : Attribute
-
-  Class StaticContent -> Content
-    Attribute type : EString
-    Attribute text : EString
 
   Enum MethodType
     Literal post = 0

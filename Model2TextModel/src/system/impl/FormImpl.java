@@ -31,6 +31,7 @@ import system.SystemPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link system.impl.FormImpl#getName <em>Name</em>}</li>
  *   <li>{@link system.impl.FormImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link system.impl.FormImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link system.impl.FormImpl#getEntity <em>Entity</em>}</li>
@@ -38,7 +39,27 @@ import system.SystemPackage;
  *
  * @generated
  */
-public class FormImpl extends NamedImpl implements Form {
+public class FormImpl extends ContentImpl implements Form {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,6 +117,27 @@ public class FormImpl extends NamedImpl implements Form {
 	@Override
 	protected EClass eStaticClass() {
 		return SystemPackage.Literals.FORM;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.FORM__NAME, oldName, name));
 	}
 
 	/**
@@ -191,6 +233,8 @@ public class FormImpl extends NamedImpl implements Form {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SystemPackage.FORM__NAME:
+				return getName();
 			case SystemPackage.FORM__METHOD:
 				return getMethod();
 			case SystemPackage.FORM__ELEMENTS:
@@ -211,6 +255,9 @@ public class FormImpl extends NamedImpl implements Form {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SystemPackage.FORM__NAME:
+				setName((String)newValue);
+				return;
 			case SystemPackage.FORM__METHOD:
 				setMethod((MethodType)newValue);
 				return;
@@ -233,6 +280,9 @@ public class FormImpl extends NamedImpl implements Form {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SystemPackage.FORM__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case SystemPackage.FORM__METHOD:
 				setMethod(METHOD_EDEFAULT);
 				return;
@@ -254,6 +304,8 @@ public class FormImpl extends NamedImpl implements Form {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SystemPackage.FORM__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SystemPackage.FORM__METHOD:
 				return method != METHOD_EDEFAULT;
 			case SystemPackage.FORM__ELEMENTS:
@@ -274,7 +326,9 @@ public class FormImpl extends NamedImpl implements Form {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (method: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", method: ");
 		result.append(method);
 		result.append(')');
 		return result.toString();

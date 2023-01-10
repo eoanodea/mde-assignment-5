@@ -2,6 +2,7 @@
  */
 package system;
 
+import java.math.BigInteger;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link system.Named#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link system.Named#getName <em>Name</em>}</li>
  *   <li>{@link system.Named#getDescription <em>Description</em>}</li>
  * </ul>
@@ -22,6 +24,28 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Named extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Identifier</em>' attribute.
+	 * @see #setIdentifier(BigInteger)
+	 * @see system.SystemPackage#getNamed_Identifier()
+	 * @model required="true"
+	 * @generated
+	 */
+	BigInteger getIdentifier();
+
+	/**
+	 * Sets the value of the '{@link system.Named#getIdentifier <em>Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Identifier</em>' attribute.
+	 * @see #getIdentifier()
+	 * @generated
+	 */
+	void setIdentifier(BigInteger value);
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

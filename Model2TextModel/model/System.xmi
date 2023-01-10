@@ -5,53 +5,63 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:sys="platform:/resource/Model2TextModel/model/System.ecore/"
     xsi:schemaLocation="platform:/resource/Model2TextModel/model/System.ecore/ System.ecore"
+    identifier="1"
     name="sys"
-    description="Here is a great system"
+    description="Here is our system"
     version="2"
-    subversion="5">
+    subversion="4">
   <entities
+      identifier="1"
       name="User"
-      description="A user who has signed up">
+      description="A user within the system">
     <features
         xsi:type="sys:Attribute"
-        name="id"
-        description="Unique identifier for the user"
+        identifier="1"
+        name="ID"
+        description="The user identifier"
         IsPrimaryKey="true"/>
     <features
         xsi:type="sys:Attribute"
-        name="username"
-        description="The username of the user"
-        type="string"/>
+        identifier="2"
+        name="Username"
+        description="The users username"
+        type="text"/>
   </entities>
-  <pages name="Home"
-      description="the homepage"
+  <pages identifier="1"
+      name="Home"
+      description="The home page"
       url="website.com"
       isHomePage="true">
     <content
         xsi:type="sys:StaticContent"
+        identifier="1"
         type="h1"
         text="Welcome to the homepage"/>
     <content
         xsi:type="sys:Form"
+        identifier="1"
         name="Sign up"
-        description="Form used to sign up users"
         entity="//@entities.0">
       <elements
+          identifier="1"
           name="username"
-          description="The users username"
+          description="Username"
           label="Enter your username"
           attr="//@entities.0/@features.1"/>
     </content>
   </pages>
-  <pages name="Profile"
+  <pages identifier="2"
+      name="Profile"
       description="The profile page"
       url="website.com/profile">
     <content
         xsi:type="sys:StaticContent"
-        type="h1"
-        text="This is the profile page"/>
+        identifier="2"
+        type="h2"
+        text="Profile page"/>
     <content
         xsi:type="sys:DynamicContent"
+        identifier="1"
         entity="//@entities.0"
         attr="//@entities.0/@features.1"/>
   </pages>

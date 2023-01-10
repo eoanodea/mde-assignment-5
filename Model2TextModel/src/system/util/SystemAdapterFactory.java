@@ -111,6 +111,10 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 				return createContentAdapter();
 			}
 			@Override
+			public Adapter caseStaticContent(StaticContent object) {
+				return createStaticContentAdapter();
+			}
+			@Override
 			public Adapter caseDynamicContent(DynamicContent object) {
 				return createDynamicContentAdapter();
 			}
@@ -121,10 +125,6 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseElement(Element object) {
 				return createElementAdapter();
-			}
-			@Override
-			public Adapter caseStaticContent(StaticContent object) {
-				return createStaticContentAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

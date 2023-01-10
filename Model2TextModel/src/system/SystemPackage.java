@@ -70,13 +70,22 @@ public interface SystemPackage extends EPackage {
 	int NAMED = 0;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED__IDENTIFIER = 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED__NAME = 0;
+	int NAMED__NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -85,7 +94,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED__DESCRIPTION = 1;
+	int NAMED__DESCRIPTION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Named</em>' class.
@@ -94,7 +103,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_FEATURE_COUNT = 2;
+	int NAMED_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Named</em>' class.
@@ -114,6 +123,15 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 */
 	int SYSTEM = 1;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__IDENTIFIER = NAMED__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -198,6 +216,15 @@ public interface SystemPackage extends EPackage {
 	int ENTITY = 2;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__IDENTIFIER = NAMED__IDENTIFIER;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,6 +280,15 @@ public interface SystemPackage extends EPackage {
 	int FEATURE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__IDENTIFIER = NAMED__IDENTIFIER;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -297,6 +333,15 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 */
 	int ATTRIBUTE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__IDENTIFIER = FEATURE__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -363,6 +408,15 @@ public interface SystemPackage extends EPackage {
 	int REFERENCE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__IDENTIFIER = FEATURE__IDENTIFIER;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,6 +470,15 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 */
 	int PAGE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__IDENTIFIER = NAMED__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -509,13 +572,22 @@ public interface SystemPackage extends EPackage {
 	int CONTENT = 7;
 
 	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT__IDENTIFIER = 0;
+
+	/**
 	 * The number of structural features of the '<em>Content</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTENT_FEATURE_COUNT = 0;
+	int CONTENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Content</em>' class.
@@ -534,7 +606,91 @@ public interface SystemPackage extends EPackage {
 	 * @see system.impl.SystemPackageImpl#getDynamicContent()
 	 * @generated
 	 */
-	int DYNAMIC_CONTENT = 8;
+	int DYNAMIC_CONTENT = 9;
+
+	/**
+	 * The meta object id for the '{@link system.impl.FormImpl <em>Form</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see system.impl.FormImpl
+	 * @see system.impl.SystemPackageImpl#getForm()
+	 * @generated
+	 */
+	int FORM = 10;
+
+	/**
+	 * The meta object id for the '{@link system.impl.ElementImpl <em>Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see system.impl.ElementImpl
+	 * @see system.impl.SystemPackageImpl#getElement()
+	 * @generated
+	 */
+	int ELEMENT = 11;
+
+	/**
+	 * The meta object id for the '{@link system.impl.StaticContentImpl <em>Static Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see system.impl.StaticContentImpl
+	 * @see system.impl.SystemPackageImpl#getStaticContent()
+	 * @generated
+	 */
+	int STATIC_CONTENT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_CONTENT__IDENTIFIER = CONTENT__IDENTIFIER;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_CONTENT__TYPE = CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_CONTENT__TEXT = CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Static Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_CONTENT_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Static Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATIC_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_CONTENT__IDENTIFIER = CONTENT__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Entity</b></em>' reference.
@@ -573,14 +729,13 @@ public interface SystemPackage extends EPackage {
 	int DYNAMIC_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link system.impl.FormImpl <em>Form</em>}' class.
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see system.impl.FormImpl
-	 * @see system.impl.SystemPackageImpl#getForm()
 	 * @generated
+	 * @ordered
 	 */
-	int FORM = 9;
+	int FORM__IDENTIFIER = CONTENT__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -589,16 +744,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM__NAME = NAMED__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORM__DESCRIPTION = NAMED__DESCRIPTION;
+	int FORM__NAME = CONTENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -607,7 +753,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM__METHOD = NAMED_FEATURE_COUNT + 0;
+	int FORM__METHOD = CONTENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -616,7 +762,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM__ELEMENTS = NAMED_FEATURE_COUNT + 1;
+	int FORM__ELEMENTS = CONTENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Entity</b></em>' reference.
@@ -625,7 +771,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM__ENTITY = NAMED_FEATURE_COUNT + 2;
+	int FORM__ENTITY = CONTENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Form</em>' class.
@@ -634,7 +780,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM_FEATURE_COUNT = NAMED_FEATURE_COUNT + 3;
+	int FORM_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Form</em>' class.
@@ -643,17 +789,16 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORM_OPERATION_COUNT = NAMED_OPERATION_COUNT + 0;
+	int FORM_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link system.impl.ElementImpl <em>Element</em>}' class.
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see system.impl.ElementImpl
-	 * @see system.impl.SystemPackageImpl#getElement()
 	 * @generated
+	 * @ordered
 	 */
-	int ELEMENT = 10;
+	int ELEMENT__IDENTIFIER = NAMED__IDENTIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -710,52 +855,6 @@ public interface SystemPackage extends EPackage {
 	int ELEMENT_OPERATION_COUNT = NAMED_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link system.impl.StaticContentImpl <em>Static Content</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see system.impl.StaticContentImpl
-	 * @see system.impl.SystemPackageImpl#getStaticContent()
-	 * @generated
-	 */
-	int STATIC_CONTENT = 11;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_CONTENT__TYPE = CONTENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_CONTENT__TEXT = CONTENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Static Content</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_CONTENT_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Static Content</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATIC_CONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link system.MethodType <em>Method Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -784,6 +883,17 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNamed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link system.Named#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see system.Named#getIdentifier()
+	 * @see #getNamed()
+	 * @generated
+	 */
+	EAttribute getNamed_Identifier();
 
 	/**
 	 * Returns the meta object for the attribute '{@link system.Named#getName <em>Name</em>}'.
@@ -1019,6 +1129,17 @@ public interface SystemPackage extends EPackage {
 	EClass getContent();
 
 	/**
+	 * Returns the meta object for the attribute '{@link system.Content#getIdentifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Identifier</em>'.
+	 * @see system.Content#getIdentifier()
+	 * @see #getContent()
+	 * @generated
+	 */
+	EAttribute getContent_Identifier();
+
+	/**
 	 * Returns the meta object for class '{@link system.DynamicContent <em>Dynamic Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1059,6 +1180,17 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getForm();
+
+	/**
+	 * Returns the meta object for the attribute '{@link system.Form#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see system.Form#getName()
+	 * @see #getForm()
+	 * @generated
+	 */
+	EAttribute getForm_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link system.Form#getMethod <em>Method</em>}'.
@@ -1209,6 +1341,14 @@ public interface SystemPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NAMED = eINSTANCE.getNamed();
+
+		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED__IDENTIFIER = eINSTANCE.getNamed_Identifier();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1401,6 +1541,14 @@ public interface SystemPackage extends EPackage {
 		EClass CONTENT = eINSTANCE.getContent();
 
 		/**
+		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTENT__IDENTIFIER = eINSTANCE.getContent_Identifier();
+
+		/**
 		 * The meta object literal for the '{@link system.impl.DynamicContentImpl <em>Dynamic Content</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1435,6 +1583,14 @@ public interface SystemPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FORM = eINSTANCE.getForm();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORM__NAME = eINSTANCE.getForm_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Method</b></em>' attribute feature.

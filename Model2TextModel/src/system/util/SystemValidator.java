@@ -130,14 +130,14 @@ public class SystemValidator extends EObjectValidator {
 				return validatePage((Page)value, diagnostics, context);
 			case SystemPackage.CONTENT:
 				return validateContent((Content)value, diagnostics, context);
+			case SystemPackage.STATIC_CONTENT:
+				return validateStaticContent((StaticContent)value, diagnostics, context);
 			case SystemPackage.DYNAMIC_CONTENT:
 				return validateDynamicContent((DynamicContent)value, diagnostics, context);
 			case SystemPackage.FORM:
 				return validateForm((Form)value, diagnostics, context);
 			case SystemPackage.ELEMENT:
 				return validateElement((Element)value, diagnostics, context);
-			case SystemPackage.STATIC_CONTENT:
-				return validateStaticContent((StaticContent)value, diagnostics, context);
 			case SystemPackage.METHOD_TYPE:
 				return validateMethodType((MethodType)value, diagnostics, context);
 			case SystemPackage.DATA_TYPE:

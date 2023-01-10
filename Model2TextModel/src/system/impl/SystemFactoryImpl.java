@@ -79,10 +79,10 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
 			case SystemPackage.REFERENCE: return createReference();
 			case SystemPackage.PAGE: return createPage();
 			case SystemPackage.CONTENT: return createContent();
+			case SystemPackage.STATIC_CONTENT: return createStaticContent();
 			case SystemPackage.DYNAMIC_CONTENT: return createDynamicContent();
 			case SystemPackage.FORM: return createForm();
 			case SystemPackage.ELEMENT: return createElement();
-			case SystemPackage.STATIC_CONTENT: return createStaticContent();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

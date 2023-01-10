@@ -218,7 +218,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNamed_Name() {
+	public EAttribute getNamed_Identifier() {
 		return (EAttribute)namedEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -227,8 +227,17 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNamed_Description() {
+	public EAttribute getNamed_Name() {
 		return (EAttribute)namedEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamed_Description() {
+		return (EAttribute)namedEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -416,6 +425,15 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getContent_Identifier() {
+		return (EAttribute)contentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDynamicContent() {
 		return dynamicContentEClass;
 	}
@@ -452,7 +470,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getForm_Method() {
+	public EAttribute getForm_Name() {
 		return (EAttribute)formEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -461,8 +479,17 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getForm_Method() {
+		return (EAttribute)formEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getForm_Elements() {
-		return (EReference)formEClass.getEStructuralFeatures().get(1);
+		return (EReference)formEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -471,7 +498,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * @generated
 	 */
 	public EReference getForm_Entity() {
-		return (EReference)formEClass.getEStructuralFeatures().get(2);
+		return (EReference)formEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -575,6 +602,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 
 		// Create classes and their features
 		namedEClass = createEClass(NAMED);
+		createEAttribute(namedEClass, NAMED__IDENTIFIER);
 		createEAttribute(namedEClass, NAMED__NAME);
 		createEAttribute(namedEClass, NAMED__DESCRIPTION);
 
@@ -604,12 +632,18 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		createEOperation(pageEClass, PAGE___VALID_PAGE_URL__DIAGNOSTICCHAIN_MAP);
 
 		contentEClass = createEClass(CONTENT);
+		createEAttribute(contentEClass, CONTENT__IDENTIFIER);
+
+		staticContentEClass = createEClass(STATIC_CONTENT);
+		createEAttribute(staticContentEClass, STATIC_CONTENT__TYPE);
+		createEAttribute(staticContentEClass, STATIC_CONTENT__TEXT);
 
 		dynamicContentEClass = createEClass(DYNAMIC_CONTENT);
 		createEReference(dynamicContentEClass, DYNAMIC_CONTENT__ENTITY);
 		createEReference(dynamicContentEClass, DYNAMIC_CONTENT__ATTR);
 
 		formEClass = createEClass(FORM);
+		createEAttribute(formEClass, FORM__NAME);
 		createEAttribute(formEClass, FORM__METHOD);
 		createEReference(formEClass, FORM__ELEMENTS);
 		createEReference(formEClass, FORM__ENTITY);
@@ -617,10 +651,6 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__LABEL);
 		createEReference(elementEClass, ELEMENT__ATTR);
-
-		staticContentEClass = createEClass(STATIC_CONTENT);
-		createEAttribute(staticContentEClass, STATIC_CONTENT__TYPE);
-		createEAttribute(staticContentEClass, STATIC_CONTENT__TEXT);
 
 		// Create enums
 		methodTypeEEnum = createEEnum(METHOD_TYPE);
@@ -661,14 +691,14 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		attributeEClass.getESuperTypes().add(this.getFeature());
 		referenceEClass.getESuperTypes().add(this.getFeature());
 		pageEClass.getESuperTypes().add(this.getNamed());
+		staticContentEClass.getESuperTypes().add(this.getContent());
 		dynamicContentEClass.getESuperTypes().add(this.getContent());
-		formEClass.getESuperTypes().add(this.getNamed());
 		formEClass.getESuperTypes().add(this.getContent());
 		elementEClass.getESuperTypes().add(this.getNamed());
-		staticContentEClass.getESuperTypes().add(this.getContent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedEClass, Named.class, "Named", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamed_Identifier(), ecorePackage.getEBigInteger(), "identifier", null, 1, 1, Named.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamed_Name(), ecorePackage.getEString(), "name", null, 0, 1, Named.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamed_Description(), ecorePackage.getEString(), "description", null, 0, 1, Named.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -714,12 +744,18 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(contentEClass, Content.class, "Content", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContent_Identifier(), ecorePackage.getEBigInteger(), "identifier", null, 1, 1, Content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(staticContentEClass, StaticContent.class, "StaticContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStaticContent_Type(), ecorePackage.getEString(), "type", null, 0, 1, StaticContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStaticContent_Text(), ecorePackage.getEString(), "text", null, 0, 1, StaticContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dynamicContentEClass, DynamicContent.class, "DynamicContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDynamicContent_Entity(), this.getEntity(), null, "entity", null, 1, 1, DynamicContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDynamicContent_Attr(), this.getAttribute(), null, "attr", null, 1, 1, DynamicContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getForm_Name(), ecorePackage.getEString(), "name", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForm_Method(), this.getMethodType(), "method", null, 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getForm_Elements(), this.getElement(), null, "elements", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getForm_Entity(), this.getEntity(), null, "entity", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -727,10 +763,6 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Label(), ecorePackage.getEString(), "label", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Attr(), this.getAttribute(), null, "attr", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(staticContentEClass, StaticContent.class, "StaticContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStaticContent_Type(), ecorePackage.getEString(), "type", null, 0, 1, StaticContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStaticContent_Text(), ecorePackage.getEString(), "text", null, 0, 1, StaticContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(methodTypeEEnum, MethodType.class, "MethodType");

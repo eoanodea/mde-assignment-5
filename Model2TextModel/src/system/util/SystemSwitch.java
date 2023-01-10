@@ -133,6 +133,13 @@ public class SystemSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SystemPackage.STATIC_CONTENT: {
+				StaticContent staticContent = (StaticContent)theEObject;
+				T result = caseStaticContent(staticContent);
+				if (result == null) result = caseContent(staticContent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SystemPackage.DYNAMIC_CONTENT: {
 				DynamicContent dynamicContent = (DynamicContent)theEObject;
 				T result = caseDynamicContent(dynamicContent);
@@ -143,7 +150,6 @@ public class SystemSwitch<T> extends Switch<T> {
 			case SystemPackage.FORM: {
 				Form form = (Form)theEObject;
 				T result = caseForm(form);
-				if (result == null) result = caseNamed(form);
 				if (result == null) result = caseContent(form);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -152,13 +158,6 @@ public class SystemSwitch<T> extends Switch<T> {
 				Element element = (Element)theEObject;
 				T result = caseElement(element);
 				if (result == null) result = caseNamed(element);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SystemPackage.STATIC_CONTENT: {
-				StaticContent staticContent = (StaticContent)theEObject;
-				T result = caseStaticContent(staticContent);
-				if (result == null) result = caseContent(staticContent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
