@@ -1,0 +1,5 @@
+This zip contains the atl code necessary to convert the A2 model to an A3 model.
+There are two examples provided of dynamic istances of A2 then converted.
+The idea behind the dynamic and static content is that when only one static content
+is present then it an individual is produced otherwise an index composed by individuals is.
+The conversion works no matter the number of classes.

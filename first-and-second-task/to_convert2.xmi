@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<A2:System xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:A2="paltform:/resource/example/A2.ecore"
+    xsi:schemaLocation="paltform:/resource/example/A2.ecore A2.ecore"
+    name="SysName"
+    version="1"
+    subversion="1">
+  <entities
+      name="EntityName">
+    <features
+        xsi:type="A2:Attribute"
+        name="Feature"
+        IsPrimaryKey="true"/>
+  </entities>
+  <pages identifier="142"
+      url="Hello.com"
+      isHomePage="true">
+    <content
+        xsi:type="A2:img"
+        identifier="123"
+        url="img url"/>
+    <content
+        xsi:type="A2:DynamicContent"
+        identifier="41"
+        name="DynamicContentPageHello"
+        entity="//@entities.0"
+        attr="//@entities.0/@features.0"/>
+  </pages>
+  <pages name="page2"
+      identifier="142124"
+      url="Hello/page2.com">
+    <content
+        xsi:type="A2:DynamicContent"
+        identifier="14241"
+        name="RandomNameForDynamicContent"
+        entity="//@entities.0"
+        attr="//@entities.0/@features.0"/>
+    <content
+        xsi:type="A2:header"
+        identifier="14"
+        level="1"
+        text="title"/>
+    <content
+        xsi:type="A2:header"
+        identifier="42"
+        level="2"
+        text="Subtitle"/>
+    <content
+        xsi:type="A2:DynamicContent"
+        identifier="1142214"
+        name="DynamicContent2"
+        entity="//@entities.0"
+        attr="//@entities.0/@features.0"/>
+  </pages>
+</A2:System>

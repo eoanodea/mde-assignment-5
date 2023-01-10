@@ -1,0 +1,195 @@
+module conversion;
+
+-- @path A2=/example/A2.ecore
+-- @path A3=/example/A3.ecore
+
+create OUT: A3 from IN: A2;
+
+rule Sys2Sys {
+	from
+		s: A2!System 
+	to
+		t: A3!System (
+			name <- s.name,
+			entities <- s.entities -> collect(child| thisModule.TransformEntity(child)),
+			pages <- s.pages -> collect(child| thisModule.TransformPage(child))
+		)
+}
+
+		
+
+
+
+ lazy rule TransformAttribute {
+    from
+        s : A2!Attribute
+    to
+        t : A3!Attribute (
+            name <- s.name,
+			isPrimaryKey <- s.IsPrimaryKey,
+			type <- s.type 
+        )
+ }
+ 
+  lazy rule TransformEntityReference {
+    from
+        s : A2!Reference
+    to
+        t : A3!Reference (
+            name <- s.name,
+			isPrimaryKey <- s.IsPrimaryKey,
+			ref <- A3!Entity.allInstances()->select(e|e.name = s.foreignKey.name)
+        )
+ }
+
+
+lazy rule TransformEntity {
+    from
+        s : A2!Entity
+    to
+        t : A3!Entity (
+            name <- s.name,
+			features <- s.features -> collect(child| if child.oclIsTypeOf(A2!Attribute) then thisModule.TransformAttribute(child) 
+								 else thisModule.TransformEntityReference(child)
+								 endif)
+								 )
+}
+		
+
+
+
+
+lazy rule TransformPage {
+        from
+			s: A2!Page
+		to
+			t: A3!Page(
+			identifier <- s.identifier,
+			url <- s.url,
+			
+			S_content <- if s.content -> select(e|e.oclIsTypeOf(A2!img) or e.oclIsTypeOf(A2!paragraph) or e.oclIsTypeOf(A2!header))->size() > 1
+			then thisModule.TransformSindex(s)
+			else thisModule.TransformSindivid(s)
+			endif,
+			
+			D_content <- if s.content -> select(e|e.oclIsTypeOf(A2!DynamicContent))->size() > 1
+			then thisModule.TransformDindex(s)
+			else thisModule.Transform_page_D_individ(s)
+			endif
+			
+			)
+		
+			
+}
+
+
+
+
+
+lazy rule Transform_page_D_individ{
+		from
+			s: A2!Page
+		to
+			t: A3!D_Individual(
+				Individual_identifier <- s.content -> select(e|e.oclIsTypeOf(A2!DynamicContent))-> collect(child|child.identifier)
+				--entity <- s.content -> select(e|e.oclIsTypeOf(A2!DynamicContent)).name-> collect(child|A3!Entity.allInstances()->select(e|e.name = child.name)) 
+			)
+		do{
+			for (content in s.content){
+				if(content.oclIsTypeOf(A2!DynamicContent))
+					t.entity <- A3!Entity.allInstances()->select(e|e.name = content.entity.name);				
+			}
+		}
+}
+
+
+
+lazy rule TransformDindex{
+	       from
+			s: A2!Page
+		to
+			t: A3!D_Index(
+				Individual <- s.content -> select(e|e.oclIsTypeOf(A2!DynamicContent)) -> collect(child|thisModule.Transform_index_D_indiv(child))
+				--entity <-  A3!Entity.allInstances()->select(e|e.name = select(e|e.oclIsTypeOf(A2!DynamicContent))->first())
+			)
+	
+}
+
+lazy rule Transform_index_D_indiv{
+		from
+			s: A2!DynamicContent
+		to
+			t: A3!D_Individual(
+				Individual_identifier <- s.identifier,
+				entity <- A3!Entity.allInstances()->select(e|e.name = s.entity.name)
+			)
+}
+
+lazy rule TransformSindex{
+	       from
+			s: A2!Page
+		to
+			t: A3!S_Index(
+				s_individual <- s.content -> select(e|e.oclIsTypeOf(A2!img) or e.oclIsTypeOf(A2!paragraph) or e.oclIsTypeOf(A2!header))-> collect(child|
+					if child.oclIsTypeOf(A2!img) then thisModule.Transform_img_S_Individual(child)
+					else 
+						if child.oclIsTypeOf(A2!paragraph) then thisModule.Transform_par_S_Individual(child)
+						else thisModule.Transform_header_S_Individual(child)
+						endif
+						endif))
+	
+}
+
+lazy rule TransformSindivid{
+	       from
+			s: A2!Page
+		to
+			t: A3!S_Individual(
+				type <- s.content -> select(e|e.oclIsTypeOf(A2!img) or e.oclIsTypeOf(A2!paragraph) or e.oclIsTypeOf(A2!header))-> collect(child|
+					if child.oclIsTypeOf(A2!img) then 'image'
+					else 
+						if child.oclIsTypeOf(A2!paragraph) then 'text'
+						else 'string'
+						endif
+						endif),
+				Individual_identifier <- s.content -> select(e|e.oclIsTypeOf(A2!img) or e.oclIsTypeOf(A2!paragraph) or e.oclIsTypeOf(A2!header))-> collect(child|child.identifier)
+			)
+	
+}
+
+
+	
+lazy rule Transform_img_S_Individual{
+	from
+		s : A2!img
+	to
+		t: A3!S_Individual(
+			type <- 'int',
+			Individual_identifier <- s.identifier
+			)
+		}
+		
+
+lazy rule Transform_par_S_Individual{
+	from
+		s : A2!paragraph
+	to
+		t: A3!S_Individual(
+			type <- 'date',
+			Individual_identifier <- s.identifier
+		)
+		}
+
+lazy rule Transform_header_S_Individual{
+	from
+		s : A2!header
+	to
+		t: A3!S_Individual(
+			type <- 'text',
+			Individual_identifier <- s.identifier
+		)
+		}
+
+
+
+---> collect(child|child) -> flatten()-> asSet()

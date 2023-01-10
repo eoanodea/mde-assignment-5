@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MyMetaModel" nsURI="com.example.mymetamodel" nsPrefix="MyMetaModel">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="A3" nsURI="platform:/resource/example/A3.ecore" nsPrefix="A3">
   <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
     <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
     <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
@@ -11,7 +11,7 @@
       <details key="constraints" value="Name_Format Name_Size"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="Name_Format" value="Tuple {&#xA;&#x9;message : String = 'first letter must be capital a',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;self.name.matches('[a-z][0-9A-Za-z]*')&#xA;}.status"/>
+      <details key="Name_Format" value="Tuple {&#xA;&#x9;message : String = 'first letter must be capital a',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;self.name.matches('[A-Z][0-9A-Za-z]*')&#xA;}.status"/>
       <details key="Name_Size" value="Tuple {&#xA;&#x9;message : String = 'at least three letters for name',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;self.name.size()>2&#xA;}.status"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -59,7 +59,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Feature">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//FeatureType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DataType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Feature">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" ordered="false" lowerBound="1"
@@ -70,12 +70,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Page">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="UrlContains"/>
-    </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="UrlContains" value="Tuple {&#xA;&#x9;message : String = 'expected word.something format',&#xA;&#x9;status : Boolean = &#xA;&#x9;&#x9;self.url.matches('[0-9A-Za-z]+[.][a-z]')&#xA;}.status"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -91,17 +85,8 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="D_Content">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Entity">
-      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
-        <details key="nullFree" value="false"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Static_Content">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//DataType"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="D_Content"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Static_Content"/>
   <eClassifiers xsi:type="ecore:EClass" name="S_Index" eSuperTypes="#//Static_Content">
     <eStructuralFeatures xsi:type="ecore:EReference" name="s_individual" lowerBound="1"
         upperBound="-1" eType="#//S_Individual" containment="true"/>
@@ -110,6 +95,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="S_Individual" eSuperTypes="#//Static_Content">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Individual_identifier"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//DataType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="D_Index" eSuperTypes="#//D_Content">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Individual" lowerBound="1"
@@ -119,6 +105,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="D_Individual" eSuperTypes="#//D_Content">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Individual_identifier"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Entity">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataType">
     <eLiterals name="int"/>

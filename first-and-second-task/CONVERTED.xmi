@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<A3:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:A3="platform:/resource/example/A3.ecore" name="SysName">
+  <entities name="Entity1">
+    <features xsi:type="A3:Attribute" name="Feature1entity1" isPrimaryKey="true"/>
+    <features xsi:type="A3:Reference" name="Reference" ref="//@entities.0"/>
+    <features xsi:type="A3:Attribute" name="Feature2entity2"/>
+  </entities>
+  <entities name="Entity2">
+    <features xsi:type="A3:Attribute" name="Feature1entity2" isPrimaryKey="true"/>
+  </entities>
+  <pages identifier="124" url="hello.com">
+    <D_content xsi:type="A3:D_Index">
+      <Individual Individual_identifier="3424" entity="//@entities.0"/>
+      <Individual Individual_identifier="234432" entity="//@entities.1"/>
+    </D_content>
+    <S_content xsi:type="A3:S_Individual" Individual_identifier="12314" type="image"/>
+  </pages>
+</A3:System>

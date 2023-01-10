@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<A2:System xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:A2="paltform:/resource/example/A2.ecore"
+    xsi:schemaLocation="paltform:/resource/example/A2.ecore A2.ecore"
+    name="SysName"
+    version="1"
+    subversion="1">
+  <entities
+      name="Entity1">
+    <features
+        xsi:type="A2:Attribute"
+        name="Feature1entity1"
+        IsPrimaryKey="true"/>
+    <features
+        xsi:type="A2:Reference"
+        name="Reference"
+        foreignKey="//@entities.0"/>
+    <features
+        xsi:type="A2:Attribute"
+        name="Feature2entity2"/>
+  </entities>
+  <entities
+      name="Entity2">
+    <features
+        xsi:type="A2:Attribute"
+        name="Feature1entity2"
+        IsPrimaryKey="true"/>
+  </entities>
+  <pages name="PageName"
+      identifier="124"
+      url="hello.com"
+      isHomePage="true">
+    <content
+        xsi:type="A2:img"
+        identifier="12314"
+        url="Url_img1"/>
+    <content
+        xsi:type="A2:DynamicContent"
+        identifier="3424"
+        name="Dynamic_Content 1"
+        entity="//@entities.0"
+        attr="//@entities.0/@features.0"/>
+    <content
+        xsi:type="A2:DynamicContent"
+        identifier="234432"
+        name="Dynamic_Content 2"
+        entity="//@entities.1"
+        attr="//@entities.0/@features.0"/>
+  </pages>
+</A2:System>
